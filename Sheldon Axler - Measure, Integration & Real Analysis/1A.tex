@@ -152,7 +152,7 @@
 	
 	For example, if we choose $\epsilon_0>0$ as the desired upper bound, there exists a partition $P$ so that
 	\begin{align*}
-		U(P,f,[a,b])-L(P,f,[a,b])<(I+\frac{\epsilon_0}{3})-(I+\frac{\epsilon_0}{3})=\frac{2}{3}\epsilon_0 < \epsilon_0
+		U(P,f,[a,b])-L(P,f,[a,b])<(I+\frac{\epsilon_0}{3})-(I-\frac{\epsilon_0}{3})=\frac{2}{3}\epsilon_0 < \epsilon_0
 	\end{align*}.
 	
 	We now prove the second implication. Minding that \[U(f,[a,b])=\inf_PU(f,P,[a,b])\leq U(f,P,[a,b])\] and \[L(f,[a,b])=\sup_PL(f,P,[a,b])\geq L(f,P,[a,b])\], we get \[U(f,[a,b])-L(f,[a,b])<\epsilon\]. If $f$ weren't Riemann integrable, then \[U(f,[a,b])-L(f,[a,b])=\Delta\], so there would exist an $\epsilon_0>0$ such that $\epsilon<\Delta$, contradicting the initial hypothesis. Therefore, $f$ needs to be Riemann integrable.
