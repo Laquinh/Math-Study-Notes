@@ -11,6 +11,16 @@
 \usepackage{mathtools}
 
 \usepackage{xlop}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\definecolor{formulationFrameColor}{RGB}{150,160,190}
+\definecolor{formulationBackgroundColor}{RGB}{240,245,250}
+
+\newtcolorbox{formulationBox}{
+	colframe=formulationFrameColor,
+	colback=formulationBackgroundColor
+}
 
 \usepackage{tikz}   
 \usepackage{pgfplots}
@@ -45,12 +55,17 @@
 \newcommand{\Sum}[2]{\displaystyle \sum_{#1}^{#2}}
 
 \begin{document}
-	\title{\textbf{Chapter1}}
-	\author{Ander Aguinaga San Sebastián — MAIS3A}
+	\title{\textbf{Chapter 1}}
+	\author{Ander Aguinaga San Sebastián}
 	\date{23/09/2023}
 	\maketitle
 	%\setcounter{section}{3}
 	\centsection{Exercise 1}
+	
+	\begin{formulationBox}
+		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is a bounded function such that \[L(f,P,[a,b]) = U(f,P,[a,b])\] for some partition $P$ of $[a,b]$. Prove that $f$ is a constant function on $[a,b]$.
+	\end{formulationBox}
+	
 	By definition,
 	\begin{equation*}
 		L(f, P, [a, b]) = \sum_{j=1}^{n}(x_j-x_{j-1})\inf_{[x_{j-1,x_j}]}f
@@ -68,6 +83,18 @@
 	$\qed$
 	
 	\centsection{Exercise 2}
+	
+	\begin{formulationBox}
+		Suppose $a\geq s<t\geq b$. Define $f:[a,b]\rightarrow\mathbb{R}$ by
+		\[
+			f(x) =
+			\begin{cases}
+				1 &\quad s<x<t\\
+				0 &\quad \textrm{otherwise.}\\ 
+			\end{cases}
+		\]
+		Prove that $f$ is Riemann integrable on $[a,b]$ and that $\int_a^bf=t-s$.
+	\end{formulationBox}
 	
 	\begin{center}
 	\begin{tikzpicture}
@@ -112,6 +139,10 @@
 	I'm getting confused with the notation and I don't think it's that important to enter in details right now (?).
 	
 	\centsection{Exercise 3}
+	
+	\begin{formulationBox}
+		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is a bounded function. Prove that $f$ is Riemann integrable if and only if for each $\epsilon>0$, there exists a partition $P$ of $[a,b]$ such that \[U(f,P,[a,b]) - L(f,P,[a,b]) < \epsilon.\]
+	\end{formulationBox}
 	
 	To prove the first implication, we define $I$ to be the value of $\int_{a}^{b}f$. As $f$ is Riemann integrable, we have \begin{align*}
 		U(f,[a,b])=L(f,[a,b])=I\\
