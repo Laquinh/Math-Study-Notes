@@ -175,4 +175,18 @@
 	Finally, as the upper and lower Riemann integrals are the same for $g$ and for $f$, as $f$ is Riemann integrable, $g$ will have to be so as well, and the value of the integral will be the same.
 	$\qed$
 	
+	\centsection{Exercise 7}
+	
+	\begin{formulationBox}
+		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is a bounded function. For $n\in\mathbb{Z}^+$, let $P_n$ denote the partition that divides $[a,b]$ into $2^n$ intervals of equal size. Prove that \[L(f,[a,b]) = \lim_{n\rightarrow\infty}L(f,P_n,[a,b]) \textrm{ and } U(f,[a,b]) = \lim_{n\rightarrow\infty}U(f,P_n,[a,b])\]
+	\end{formulationBox}
+	
+	The length of each interval is $\frac{b-a}{2^n}$. The position of the $m^\textrm{th}$ point in $P_n$ is $\frac{m(b-a)}{2^n}$.
+	
+	Now, we can observe that the $2m^\textrm{th}$ point in $P_{n+1}$ is equal to the $m^\textrm{th}$ point in $P_n$: \[\frac{2m(b-a)}{2^{n+1}} = \frac{2m(b-a)}{2\cdot2^n} = \frac{m(b-a)}{2^n},\] which means $P_n \subset P_{n+1}$.
+	
+	By theorem 1.5, \[L(f,P_n,[a,b]) \leq L(f,P_{n+1},[a,b]) \textrm{ and } U(f,P_n,[a,b]) \geq U(f,P_n,[a,b])\ \forall n\in\mathbb{Z}^+.\] Thus, the supremum of these lower sums will be $\Lim{n\rightarrow\infty}L(f,P_n,[a,b])$ and the infimum of the upper sums will be $\Lim{n\rightarrow\infty}U(f,P_n,[a,b])$.
+	
+	$\qed$
+	
 \end{document}
