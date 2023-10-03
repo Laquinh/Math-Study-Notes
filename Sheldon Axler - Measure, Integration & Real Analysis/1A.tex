@@ -144,7 +144,7 @@
 		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is a bounded function. Prove that $f$ is Riemann integrable if and only if for each $\epsilon>0$, there exists a partition $P$ of $[a,b]$ such that \[U(f,P,[a,b]) - L(f,P,[a,b]) < \epsilon.\]
 	\end{formulationBox}
 	
-	To prove the first implication, we define $I$ to be the value of $\int_{a}^{b}f$. As $f$ is Riemann integrable, we have \begin{align*}
+	To prove the first direction, we define $I$ to be the value of $\int_{a}^{b}f$. As $f$ is Riemann integrable, we have \begin{align*}
 		U(f,[a,b])=L(f,[a,b])=I\\
 		\implies\inf_PU(f,P,[a,b])=\sup_PL(f,P,[a,b])=I\\ \implies\inf_PU(f,P,[a,b])-\sup_PL(f,P,[a,b])=0
 	\end{align*}.
@@ -155,6 +155,6 @@
 		U(P,f,[a,b])-L(P,f,[a,b])<(I+\frac{\epsilon_0}{3})-(I-\frac{\epsilon_0}{3})=\frac{2}{3}\epsilon_0 < \epsilon_0
 	\end{align*}.
 	
-	We now prove the second implication. Minding that \[U(f,[a,b])=\inf_PU(f,P,[a,b])\leq U(f,P,[a,b])\] and \[L(f,[a,b])=\sup_PL(f,P,[a,b])\geq L(f,P,[a,b])\], we get \[U(f,[a,b])-L(f,[a,b])<\epsilon\]. If $f$ weren't Riemann integrable, then \[U(f,[a,b])-L(f,[a,b])=\Delta\], so there would exist an $\epsilon_0>0$ such that $\epsilon<\Delta$, contradicting the initial hypothesis. Therefore, $f$ needs to be Riemann integrable.
+	We now prove the other direction. Minding that \[U(f,[a,b])=\inf_PU(f,P,[a,b])\leq U(f,P,[a,b])\] and \[L(f,[a,b])=\sup_PL(f,P,[a,b])\geq L(f,P,[a,b])\], we get \[U(f,[a,b])-L(f,[a,b])<\epsilon\]. If $f$ weren't Riemann integrable, then \[U(f,[a,b])-L(f,[a,b])=\Delta\], so there would exist an $\epsilon_0>0$ such that $\epsilon<\Delta$, contradicting the initial hypothesis. Therefore, $f$ needs to be Riemann integrable.
 	$\qed$
 \end{document}
