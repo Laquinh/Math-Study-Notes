@@ -159,4 +159,20 @@
 	
 	We now prove the other direction. Minding that \[U(f,[a,b])=\inf_PU(f,P,[a,b])\leq U(f,P,[a,b])\] and \[L(f,[a,b])=\sup_PL(f,P,[a,b])\geq L(f,P,[a,b])\], we get \[U(f,[a,b])-L(f,[a,b])<\epsilon\]. If $f$ weren't Riemann integrable, then \[U(f,[a,b])-L(f,[a,b])=\Delta\], so there would exist an $\epsilon_0>0$ such that $\epsilon<\Delta$, contradicting the initial hypothesis. Therefore, $f$ needs to be Riemann integrable.
 	$\qed$
+	
+	\centsection{Exercise 6}
+	
+	\begin{formulationBox}
+		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is Riemann integrable. Suppose $g:[a,b]\rightarrow\mathbb{R}$ is a function such that $g(x) = f(x)$ for all except finitely many $x\in[a,b]$. Prove that $g$ is Riemann integrable on $[a,b]$ and \[\int_a^bg=\int_a^bf.\]
+	\end{formulationBox}
+
+	Let $x_1, x_2, ..., x_n$ denote the points where $g(x)\neq f(x)$. Each of these points will be contained in one or two subintervals of $[a,b]$. If a subinterval happened to contain more than one of these, we can adjoin a point to the partition in between them (thanks to the fact that $n$ is finite), so each subinterval contains at most one of the $x_m$.
+	
+	Suppose $g(x) > f(x)$ for some $x_\lambda$. Then, the subinterval's infimum would remain the same and $L(f,P,[a,b]) = L(g,P,[a,b])\implies L(f,[a,b])=L(g,[a,b])$. The supremum, however, could change to have the value of $g(x_\lambda)$, so $U(f,P,[a,b]) \geq U(g,P,[a,b])$. As more and more points are adjoined to the partition in order to calculate the integrals, the supremum of $f$ and the supremum of $g$ would be different by $g(x_\lambda)-f(x_\lambda)$, and the total impact on the upper Riemann sum would be $U(g,P,[a,b])-U(f,P,[a,b]) = \Delta_\lambda\cdot(f(x_\lambda)-g(x_\lambda))$, with $\Delta_\lambda$ being the width of the subinterval containing $x_\lambda$. Now, for any $\epsilon>0$ we could manage to reduce the width to be $\Delta_\lambda<\epsilon$, by way of adjoining more points to the partition. Therefore, even though the upper Riemann sums would be different for $f$ and for $g$, the difference can be reduce indefinitely, so the upper Riemann integral would be the same for both $f$ and $g$.
+	
+	If $g(x) < f(x)$, the proof will have the same structure: the upper Riemann sums are always equal (so the upper Riemann integrals are equal as well), and the lower Riemann sums are different, the difference can be reduced indefinitely, so the lower Riemann integral will be the same for both $f$ and $g$.
+	
+	Finally, as the upper and lower Riemann integrals are the same for $g$ and for $f$, as $f$ is Riemann integrable, $g$ will have to be so as well, and the value of the integrall will be the same.
+	$\qed$	
+	
 \end{document}
