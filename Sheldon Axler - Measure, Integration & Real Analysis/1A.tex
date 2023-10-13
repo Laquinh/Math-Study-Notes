@@ -54,7 +54,10 @@
 \renewcommand{\qed}{\hfill\blacksquare}
 
 \newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newcommand{\Inf}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \inf_{#1}\;$}}}
+\newcommand{\Sup}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \sup_{#1}\;$}}}
 \newcommand{\Sum}[2]{\displaystyle \sum_{#1}^{#2}}
+\newcommand{\Int}[2]{\displaystyle \int_{#1}^{#2}}
 
 \begin{document}
 	\title{\textbf{Chapter 1 — Part A}}
@@ -189,4 +192,16 @@
 	
 	$\qed$
 	
+	\centsection{Exercise 8}
+	
+	\begin{formulationBox}
+		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is Riemann integrable. Prove that \[\int_a^bf=\lim_{n\rightarrow\infty}\frac{b-a}{n}\sum_{j=1}^{n}f(a+\frac{j(b-a)}{n})\]
+	\end{formulationBox}
+	
+	Let's first unravel the formula above. The idea is we're dividing the interval $[a,b]$ in $n$ subintervals, each of length $\frac{b-a}{n}$. For each of these subintervals $[a_k, b_k]$, we take $f(b_k)$ (the image of the ending point of the subinterval) to form a rectangle of length $b_k-a_k$ and height $f(b_k)$, instead of the regular $\Inf{[a_k, b_k]}f$ or $\Sup{[a_k, b_k]}f$ we'd use of the lower and upper Riemann sums. What the equation says is that the sum of these rectangles approaches the Riemann integral as the number of rectangles approaches infinity.
+	
+	It's a trivial fact that $\Inf{[a_k, b_k]}f \leq f(b_k) \leq \Sup{[a_k, b_k]}f$ for each subinterval $k$ in any partition. Therefore, $L(f, P, [a,b]) \leq \Sum{j=1}{n}\frac{b-a}{n}f(a + \frac{j(b-a)}{n}) \leq U(f, P, [a,b])$ must also be true for any partition $P$, which also implies $L(f, [a,b]) \leq \Lim{n\rightarrow\infty}\frac{b-a}{n}\Sum{j=1}{n}f(a + \frac{j(b-a)}{n}) \leq U(f, [a,b])$. Since we're supposing $f$ is Riemann integrable, \[\Int{a}{b}f = L(f, [a,b]) \leq \Lim{n\rightarrow\infty}\frac{b-a}{n}\Sum{j=1}{n}f(a + \frac{j(b-a)}{n}) \leq U(f, [a,b]) = \Int{a}{b}f\]
+	Thus,
+	\[\int_a^bf = \Lim{n\rightarrow\infty}\frac{b-a}{n}\Sum{j=1}{n}f(a + \frac{j(b-a)}{n}).\]
+	$\qed$
 \end{document}
