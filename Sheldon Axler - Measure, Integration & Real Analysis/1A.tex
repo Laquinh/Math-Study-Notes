@@ -59,6 +59,22 @@
 \newcommand{\Sum}[2]{\displaystyle \sum_{#1}^{#2}}
 \newcommand{\Int}[2]{\displaystyle \int_{#1}^{#2}}
 
+\newcommand{\naturals}{
+	\ensuremath{\mathbb{N}}
+}
+\newcommand{\integers}{
+	\ensuremath{\mathbb{Z}}
+}
+\newcommand{\rationals}{
+	\ensuremath{\mathbb{Q}}
+}
+\newcommand{\reals}{
+	\ensuremath{\mathbb{R}}
+}
+\newcommand{\complexes}{
+	\ensuremath{\mathbb{C}}
+}
+
 \begin{document}
 	\title{\textbf{Chapter 1 — Part A}}
 	\author{Ander Aguinaga San Sebastián}
@@ -68,7 +84,7 @@
 	\centsection{Exercise 1}
 	
 	\begin{formulationBox}
-		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is a bounded function such that \[L(f,P,[a,b]) = U(f,P,[a,b])\] for some partition $P$ of $[a,b]$. Prove that $f$ is a constant function on $[a,b]$.
+		Suppose $f:[a,b]\rightarrow\reals$ is a bounded function such that \[L(f,P,[a,b]) = U(f,P,[a,b])\] for some partition $P$ of $[a,b]$. Prove that $f$ is a constant function on $[a,b]$.
 	\end{formulationBox}
 	
 	By definition,
@@ -81,7 +97,7 @@
 	\end{equation*}
 	.
 	\newpara
-	Therefore, for the lower and upper Riemann sums to be equal, the infimum and the supremum of $f$ in each of the $[x_{j-1},x_j]$ subintervals need to be the same. To prove this only happens when $f$ in constant, let's suppose there exist $x_1, x_2\in\mathbb{R}$ such that $f(x_1) < f(x_2)$ in an interval $[\alpha,\beta]$. By definition,
+	Therefore, for the lower and upper Riemann sums to be equal, the infimum and the supremum of $f$ in each of the $[x_{j-1},x_j]$ subintervals need to be the same. To prove this only happens when $f$ in constant, let's suppose there exist $x_1, x_2\in\reals$ such that $f(x_1) < f(x_2)$ in an interval $[\alpha,\beta]$. By definition,
 	\begin{equation*}
 		\inf_{[\alpha,\beta]}f \leq f(x_1) < f(x_2) \leq  \sup_{[\alpha,\beta]}f \implies \inf_{[\alpha,\beta]}f < \sup_{[\alpha,\beta]}f
 	\end{equation*}. Therefore, we need the function to be constant in order for the infimum and the supremum to be equal to each other.
@@ -90,7 +106,7 @@
 	\centsection{Exercise 2}
 	
 	\begin{formulationBox}
-		Suppose $a\geq s<t\geq b$. Define $f:[a,b]\rightarrow\mathbb{R}$ by
+		Suppose $a\geq s<t\geq b$. Define $f:[a,b]\rightarrow\reals$ by
 		\[
 			f(x) =
 			\begin{cases}
@@ -134,7 +150,7 @@
 		=\inf_P\sum_{j=1}^\alpha(x_j-x_{j-1})\sup_{[x_{j-1},x_j]}f+\inf_P\sum_{j=\alpha+1}^\beta(x_j-x_{j-1})\sup_{[x_{j-1},x_j]}f+\inf_P\sum_{j=\beta+1}^n(x_j-x_{j-1})\sup_{[x_{j-1},x_j]}f\\
 		=0+\inf_P\sum_{j=\alpha+1}^\beta(x_j-x_{j-1})\cdot1+0=\inf_P(x_\beta-x_{\alpha})=t-s
 	\end{align*}
-	Where $\alpha,\beta\in\mathbb{R}$ such that $x_\alpha=s$ and $x_\beta=t$, and $n$ is the number of points in the partition.
+	Where $\alpha,\beta\in\reals$ such that $x_\alpha=s$ and $x_\beta=t$, and $n$ is the number of points in the partition.
 	
 	Likewise:
 	\begin{align*}
@@ -146,7 +162,7 @@
 	\centsection{Exercise 3}
 	
 	\begin{formulationBox}
-		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is a bounded function. Prove that $f$ is Riemann integrable if and only if for each $\epsilon>0$, there exists a partition $P$ of $[a,b]$ such that \[U(f,P,[a,b]) - L(f,P,[a,b]) < \epsilon.\]
+		Suppose $f:[a,b]\rightarrow\reals$ is a bounded function. Prove that $f$ is Riemann integrable if and only if for each $\epsilon>0$, there exists a partition $P$ of $[a,b]$ such that \[U(f,P,[a,b]) - L(f,P,[a,b]) < \epsilon.\]
 	\end{formulationBox}
 	
 	To prove the first direction, we define $I$ to be the value of $\int_{a}^{b}f$. As $f$ is Riemann integrable, we have \begin{align*}
@@ -166,7 +182,7 @@
 	\centsection{Exercise 6}
 	
 	\begin{formulationBox}
-		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is Riemann integrable. Suppose $g:[a,b]\rightarrow\mathbb{R}$ is a function such that $g(x) = f(x)$ for all except finitely many $x\in[a,b]$. Prove that $g$ is Riemann integrable on $[a,b]$ and \[\int_a^bg=\int_a^bf.\]
+		Suppose $f:[a,b]\rightarrow\reals$ is Riemann integrable. Suppose $g:[a,b]\rightarrow\reals$ is a function such that $g(x) = f(x)$ for all except finitely many $x\in[a,b]$. Prove that $g$ is Riemann integrable on $[a,b]$ and \[\int_a^bg=\int_a^bf.\]
 	\end{formulationBox}
 
 	Let $x_1, x_2, ..., x_n$ denote the points where $g(x)\neq f(x)$. Each of these points will be contained in one or two subintervals of $[a,b]$. If a subinterval happens to contain more than one of these, we can adjoin a point to the partition in between them (thanks to the fact that $n$ is finite), so each subinterval contains at most one of the points.
@@ -181,21 +197,21 @@
 	\centsection{Exercise 7}
 	
 	\begin{formulationBox}
-		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is a bounded function. For $n\in\mathbb{Z}^+$, let $P_n$ denote the partition that divides $[a,b]$ into $2^n$ intervals of equal size. Prove that \[L(f,[a,b]) = \lim_{n\rightarrow\infty}L(f,P_n,[a,b]) \textrm{ and } U(f,[a,b]) = \lim_{n\rightarrow\infty}U(f,P_n,[a,b])\]
+		Suppose $f:[a,b]\rightarrow\reals$ is a bounded function. For $n\in\integers^+$, let $P_n$ denote the partition that divides $[a,b]$ into $2^n$ intervals of equal size. Prove that \[L(f,[a,b]) = \lim_{n\rightarrow\infty}L(f,P_n,[a,b]) \textrm{ and } U(f,[a,b]) = \lim_{n\rightarrow\infty}U(f,P_n,[a,b])\]
 	\end{formulationBox}
 	
 	The length of each interval is $\frac{b-a}{2^n}$. The position of the $m^\textrm{th}$ point in $P_n$ is $\frac{m(b-a)}{2^n}$.
 	
 	Now, we can observe that the $2m^\textrm{th}$ point in $P_{n+1}$ is equal to the $m^\textrm{th}$ point in $P_n$: \[\frac{2m(b-a)}{2^{n+1}} = \frac{2m(b-a)}{2\cdot2^n} = \frac{m(b-a)}{2^n},\] which means $P_n \subset P_{n+1}$.
 	
-	By theorem 1.5, \[L(f,P_n,[a,b]) \leq L(f,P_{n+1},[a,b]) \textrm{ and } U(f,P_n,[a,b]) \geq U(f,P_n,[a,b])\ \forall n\in\mathbb{Z}^+.\] Thus, the supremum of these lower sums will be $\Lim{n\rightarrow\infty}L(f,P_n,[a,b])$ and the infimum of the upper sums will be $\Lim{n\rightarrow\infty}U(f,P_n,[a,b])$.
+	By theorem 1.5, \[L(f,P_n,[a,b]) \leq L(f,P_{n+1},[a,b]) \textrm{ and } U(f,P_n,[a,b]) \geq U(f,P_n,[a,b])\ \forall n\in\integers^+.\] Thus, the supremum of these lower sums will be $\Lim{n\rightarrow\infty}L(f,P_n,[a,b])$ and the infimum of the upper sums will be $\Lim{n\rightarrow\infty}U(f,P_n,[a,b])$.
 	
 	$\qed$
 	
 	\centsection{Exercise 8}
 	
 	\begin{formulationBox}
-		Suppose $f:[a,b]\rightarrow\mathbb{R}$ is Riemann integrable. Prove that \[\int_a^bf=\lim_{n\rightarrow\infty}\frac{b-a}{n}\sum_{j=1}^{n}f(a+\frac{j(b-a)}{n})\]
+		Suppose $f:[a,b]\rightarrow\reals$ is Riemann integrable. Prove that \[\int_a^bf=\lim_{n\rightarrow\infty}\frac{b-a}{n}\sum_{j=1}^{n}f(a+\frac{j(b-a)}{n})\]
 	\end{formulationBox}
 	
 	Let's first unravel the formula above. The idea is we're dividing the interval $[a,b]$ in $n$ subintervals, each of length $\frac{b-a}{n}$. For each of these subintervals $[a_k, b_k]$, we take $f(b_k)$ (the image of the ending point of the subinterval) to form a rectangle of length $b_k-a_k$ and height $f(b_k)$, instead of the regular $\Inf{[a_k, b_k]}f$ or $\Sup{[a_k, b_k]}f$ we'd use of the lower and upper Riemann sums. What the equation says is that the sum of these rectangles approaches the Riemann integral as the number of rectangles approaches infinity.
