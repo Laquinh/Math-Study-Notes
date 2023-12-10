@@ -134,4 +134,21 @@
 	Then, $(f+g)(x) = 1\ \forall x\in[0,1]$. The first inequality holds: $0 + 0 < 1$, and the second one as well: $1 < 1 + 1$.
 	
 	$\qed$
+	
+	\centsection{Exercise 5}
+	
+	\begin{formulationBox}
+		Give an example of a sequence of continuous real-valued functions $f_1, f_2, \dots$ on $[0,1]$ and a continuous real-valued function $f$ on $[0,1]$ such that \[f(x)=\Lim{k\rightarrow\infty}f_k(x)\] for each $x\in[0,1]$ but \[\Int{0}{1}f \neq \Lim{k\rightarrow\infty}\Int{0}{1}f_k.\]
+	\end{formulationBox}
+	
+	Define $f_n:[0,1]\rightarrow\reals$ as
+	\[
+		f_n(x) =
+		\begin{cases}
+			\frac{\pi n}{2}\sin(\pi xn) &\quad \textrm{if $0\leq x\leq \frac{1}{n}$,}\\
+			0 &\quad \textrm{if $\frac{1}{n} < x \leq 1$.}
+		\end{cases}
+	\]
+	
+	Then, $\Int{0}{1}f_k = 1\ \forall k\in\naturals$, thus $\Lim{k\rightarrow\infty}\Int{0}{1}f_k = 1$; however, $\Lim{k\rightarrow\infty}f_k(x) = f(x) = 0$, and $\Int{0}{1}f = 0$.
 \end{document}
