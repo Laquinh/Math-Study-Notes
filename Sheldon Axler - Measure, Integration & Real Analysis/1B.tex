@@ -106,4 +106,32 @@
 	%As there are a finite number of rationals until $r_k$, by the theorem proven in exercise 6, we know that these are not going to affect the value of the integral. On the other hand, while 
 	
 	%use the fact that $\frac{1}{n^2}$ is divergent (?)
+	
+	\centsection{Exercise 4}
+	
+	\begin{formulationBox}
+		Give an example of bounded functions $f, g:[0,1]\rightarrow\reals$ such that \[L(f, [0,1]) + L(g, [0,1]) < L(f+g,[0,1])\] and \[U(f+g,[0,1]) < U(f, [0,1]) + U(g, [0,1]).\]
+	\end{formulationBox}
+	
+	Define $f:[0,1]\rightarrow\reals$ as
+	\[
+		f(x) =
+		\begin{cases}
+			0 &\quad \textrm{if $x$ is irrational,}\\
+			1 &\quad \textrm{if $x$ is rational}
+		\end{cases}
+	\]
+	
+	and $g:[0,1]\rightarrow\reals$ as
+	\[
+		g(x) =
+		\begin{cases}
+			1 &\quad \textrm{if $x$ is irrational,}\\
+			0 &\quad \textrm{if $x$ is rational.}
+		\end{cases}
+	\]
+	
+	Then, $(f+g)(x) = 1\ \forall x\in[0,1]$. The first inequality holds: $0 + 0 < 1$, and the second one as well: $1 < 1 + 1$.
+	
+	$\qed$
 \end{document}
