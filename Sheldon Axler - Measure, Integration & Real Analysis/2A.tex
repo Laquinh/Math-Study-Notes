@@ -82,6 +82,20 @@
 	\title{\textbf{Chapter 2 — Section A}}
 	\maketitle
 	%\setcounter{section}{3}
+	\centsection{Exercise 1}
+	
+	\begin{formulationBox}
+		Prove that if $A$ and $B$ are subsets of $\reals$ and $|B|=0$, then $|A\cup B| = |A|$.
+	\end{formulationBox}
+	
+	By theorem 2.5, \textit{outer measure preserves order}, as $A$ and $A\cup B$ are subsets of $\reals$ with $A\subseteq A\cup B$, then $|A| \leq |A\cup B|$.
+	\newpara
+	Now, by theorem 2.8, \textit{countable subadditivity of outer measure}, and as it trivially implies finite subadditivity, we have $|A\cup B| \leq |A| + |B| = |A| + 0 = |A|$.
+	\newpara
+	As we have both $|A\cup B| \leq |A|$ and $|A| \leq |A\cup B|$, we get $|A\cup B| = |A|$.
+	
+	$\qed$
+	
 	\centsection{Exercise 14}
 	
 	\begin{formulationBox}
