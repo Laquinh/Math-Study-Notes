@@ -111,4 +111,41 @@
 	\end{itemize}
 	
 	$\qed$
+	
+	\centsection{Exercise 2}
+	
+	\begin{formulationBox}
+		\begin{enumerate}[label=\alph*)]
+			\item Suppose $X$ is a set and $\mathcal{A}$ is the set of subsets of $X$ that consist of exactly one element: \[\mathcal{A} = \{\{x\}:x\in X\}.\]
+			Prove that the smallest $\sigma$-algebra on $X$ containing $\mathcal{A}$ is the set of all subsets $E$ of $X$ such that $E$ is countable or $X\setminus E$ is countable.
+			
+			\item Suppose $\mathcal{A} = \{(0,1), (0,\infty)\}$. Prove that the smallest $\sigma$-algebra on $\reals$ containing $\mathcal{A}$ is \[\{\varnothing, (0,1), (0,\infty), (-\infty,0]\cup[1,\infty), (-\infty, 0], [1,\infty), (-\infty,1), \reals\}.\]
+		\end{enumerate}
+	\end{formulationBox}
+
+		\begin{enumerate}[label=\alph*)]
+		\item Let $\sigmaAlgebra{S}$ be the smallest $\sigma$-algebra on $X$ containing $\mathcal{A}$. Of course, $\mathcal{A}\subseteq\sigmaAlgebra{S}$.
+		
+		To verify the third bullet point, the following must be true: \[\bigcup_{k=1}^{\infty}a_k\in\sigmaAlgebra{S}\] with $a_k\in\mathcal{A}$. Since the countable union of countable sets is countable, all $a_k$ are countable, and all elements of $X$ belong to some element of $\mathcal{A}$, we need for all countable sets to be in $\sigmaAlgebra{S}$.
+		
+		To verify the second bullet point, because all countable sets are in $\sigmaAlgebra{S}$, then all sets $X\setminus E$ such that $E$ is countable must be in $\sigmaAlgebra{S}$ as well. Since $E = X\setminus(X\setminus E)$, this is equivalent to saying that all sets $E$ such that $X\setminus E$ is countable must be in $\sigmaAlgebra{S}$.
+		
+		Finally, since $\varnothing$ is countable, the first bullet point is trivially verified.
+		
+		Therefore, the described set owns all the elements necessary for it to be a sigma algebra, and we don't need any more elements for it to contain $\mathcal{A}$, which means it is the smallest $\sigma$-algebra containing $\mathcal{A}$.
+		
+		$\qed$
+		
+		\item Let $\sigmaAlgebra{S}$ be the smallest $\sigma$-algebra on $\reals$ containing $\mathcal{A}$.
+		
+		To verify the first bullet point, we need $\varnothing\in\sigmaAlgebra{S}$.
+		
+		As for the second bullet point, because we want $(0,1)\in\sigmaAlgebra{S}$ and $(0,\infty)\in\sigmaAlgebra{S}$, we also need $(-\infty,0]\cup[1,\infty)\in\sigmaAlgebra{S}$ and $(-\infty,0]\in\sigmaAlgebra{S}$. We also need $\reals\in\sigmaAlgebra{S}$ because of the first condition.
+		
+		Finally, for the third bullet point's condition to be met, we need the unions among all these elements to belong to $\sigmaAlgebra{S}$, as well as their complementaries.
+		
+		We are missing $(-\infty, 1)$, which is required as the union $(-\infty,0]\cup(0,1)$. Its complementary $[1,\infty)$ also needs to belong to $\sigmaAlgebra{S}$ in order for the second bullet point to still hold.
+		
+		$\qed$
+	\end{enumerate}
 \end{document}
