@@ -123,7 +123,7 @@
 		\end{enumerate}
 	\end{formulationBox}
 
-		\begin{enumerate}[label=\alph*)]
+	\begin{enumerate}[label=\alph*)]
 		\item Let $\sigmaAlgebra{S}$ be the smallest $\sigma$-algebra on $X$ containing $\mathcal{A}$. Of course, $\mathcal{A}\subseteq\sigmaAlgebra{S}$.
 		
 		To verify the third bullet point, the following must be true: \[\bigcup_{k=1}^{\infty}a_k\in\sigmaAlgebra{S}\] with $a_k\in\mathcal{A}$. Since the countable union of countable sets is countable, all $a_k$ are countable, and all elements of $X$ belong to some element of $\mathcal{A}$, we need for all countable sets to be in $\sigmaAlgebra{S}$.
@@ -148,4 +148,24 @@
 		
 		$\qed$
 	\end{enumerate}
+
+	\centsection{Exercise 3}
+	
+	\begin{formulationBox}
+		Suppose $\sigmaAlgebra{S}$ is the smallest $\sigma$-algebra on $\reals$ containing $\{(r,s]:r,s\in\rationals\}$. Prove that $\sigmaAlgebra{S}$ is the collection of Borel subsets of $\reals$.
+	\end{formulationBox}
+
+	Let $\sigmaAlgebra{B}$ denote the collection of all Borel subsets of $\reals$.
+
+	Note that the described intervals are Borel sets because they are half-open intervals, so $\{(r,s]:r,s\in\rationals\}\subseteq\sigmaAlgebra{B}$, therefore $\sigmaAlgebra{S}\subseteq\sigmaAlgebra{B}$.
+	
+	Let $r',s'\in\reals$. We can find a sequence of rationals $r'_1, r'_2, ...$ with $r'_k < r'$ where $k\in\naturals$ whose limit is $r'$. (Same with $s'$).
+	
+	Because of the third condition, the union or intersection of a sequence of $\sigmaAlgebra{S}$-measurable sets must also be $\sigmaAlgebra{S}$-measurable. We can define the sequence to be $(r'_1, s'_1], (r'_2,s'_2], ...$, so the union of all these intervals is $[r', s')\in\sigmaAlgebra{S}$.
+	
+	Now, let $a,b\in\reals$. We can define a sequence $[a_1, b), [a_2, b), ...$ with $a_k = a+\frac{1}{k+k_0}$, $k\in\naturals^+$ and $k_0>\frac{1}{b}-k$. Since the sequence $a_1, a_2, ...$ converges to $a$ from the right, the union of all these intervals is $(a, b)$. This means $\sigmaAlgebra{S}$ contains all open subintervals of $\reals$, therefore $\sigmaAlgebra{B} \subseteq \sigmaAlgebra{S}$.
+	
+	Since $\sigmaAlgebra{S}\subseteq\sigmaAlgebra{B}$ and $\sigmaAlgebra{B} \subseteq \sigmaAlgebra{S}$, we obtain $\sigmaAlgebra{B} = \sigmaAlgebra{S}$.
+	
+	$\qed$
 \end{document}
