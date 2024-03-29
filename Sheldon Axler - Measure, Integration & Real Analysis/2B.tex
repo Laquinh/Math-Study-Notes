@@ -188,4 +188,20 @@
 	The rest can be proved as in exercise 3.
 	
 	$\qed$
+	
+	\centsection{Exercise 9}
+	
+	\begin{formulationBox}
+		Give an example of a measurable space $(X, \sigmaAlgebra{S})$ and a function $f:X\rightarrow\reals$ such that $|f|$ is $\sigmaAlgebra{S}$-measurable but $f$ is not $\sigmaAlgebra{S}$-measurable.
+	\end{formulationBox}
+
+	Let $X=\reals$ and $\sigmaAlgebra{S} = \{\varnothing, \reals\}$. Consider the function
+	\[
+		f(x) = \begin{cases}
+			-1 &\quad x<0\\
+			1 &\quad x\geq0.
+		\end{cases}
+	\]
+	
+	Then, $|f|$ is a constant function, but $f$ is not. Since the only $\sigmaAlgebra{S}$-measurable functions are the constant functions, $|f|$ is $\sigmaAlgebra{S}$-measurable but $f$ is not.
 \end{document}
