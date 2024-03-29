@@ -168,4 +168,24 @@
 	Since $\sigmaAlgebra{S}\subseteq\sigmaAlgebra{B}$ and $\sigmaAlgebra{B} \subseteq \sigmaAlgebra{S}$, we obtain $\sigmaAlgebra{B} = \sigmaAlgebra{S}$.
 	
 	$\qed$
+	
+	\centsection{Exercise 4}
+	
+	\begin{formulationBox}
+		Suppose $\sigmaAlgebra{S}$ is the smallest $\sigma$-algebra on $\reals$ containing $\{(r,n]:r\in\rationals,n\in\integers\}$. Prove that $\sigmaAlgebra{S}$ is the collection of Borel subsets of $\reals$.
+	\end{formulationBox}
+	
+	Let $\sigmaAlgebra{B}$ denote the collection of all Borel subsets of $\reals$.
+	
+	Note that the described intervals are Borel sets because they are half-open intervals, so $\{(r,n]:r\in\rationals,n\in\integers\}\subseteq\sigmaAlgebra{B}$, therefore $\sigmaAlgebra{S}\subseteq\sigmaAlgebra{B}$.
+	
+	Because of the second condition, the subsets of $\reals$ of the form $(-\infty, r]\cup(n, \infty)$ must also be $\sigmaAlgebra{S}$-measurable.
+	
+	Because of the third condition, the intersection of a sequence of $\sigmaAlgebra{S}$-measurable sets must also be $\sigmaAlgebra{S}$-measurable.
+	
+	Let $r_1, r_2\in\rationals$ and $n_1, n_2\in\integers$ with $r_1 < r_2 < n_1 < n_2$. Now, consider the sets $(r_1, n_1]$ and $(-\infty, r_2]\cup(n_2, \infty)$. The intersection of these sets is $(r_1, r_2]$. This means that \[\{(r,s]:r,s\in\rationals\}\in\sigmaAlgebra{S}.\]
+	
+	The rest can be proved as in exercise 3.
+	
+	$\qed$
 \end{document}
