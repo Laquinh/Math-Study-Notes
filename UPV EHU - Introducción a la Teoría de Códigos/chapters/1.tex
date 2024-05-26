@@ -1,0 +1,62 @@
+\chapter{Preliminares sobre Álgebra Lineal}
+
+\section{Ejercicio 1}
+
+\begin{formulationBox}
+	Sea $(K, +, \cdot)$ un cuerpo. Demostrar que
+	\[K^n = \{(k_1,\dots,k_n)|k_i\in K, \forall i\in\{1, 2, \dots, n\}\}\]
+	con la suma definida por: para cualesquiera $(x_1, \dots, x_n), (y_1, \dots, y_n) \in K^n$
+	\[(x_1, \dots, x_n) + (y_1, \dots, y_n) = (x_1+y_1, \dots, x_n+y_n)\]
+	y la multiplicación por un escalar:
+	\[\forall\lambda\in K, \forall(x_1, \dots, x_n)\in K^n, \lambda(x_1, \dots, x_n) = (\lambda x_1, \dots, \lambda x_n)\]
+	es un $K$-espacio vectorial.
+\end{formulationBox}
+
+Primero, notemos que, como $(K, +, \cdot)$ es un cuerpo, también tenemos que $(K, +)$ es un grupo abeliano.
+
+También, la multiplicación dada tiene dominio $K\times K^n$ y codominio $K^n$, un requisito para que $(K^n, +, \cdot)$ sea un $K$-espacio vectorial.
+
+Que $(K^n, +)$ es un grupo abeliano es algo trivial teniendo en cuenta que $(K, +)$ también lo es, puesto que la suma de elementos de $K^n$ no es más que varias sumas de elementos de $K$, y compartirán las mismas propiedades.
+
+Por otra parte, comprobamos las propiedades que la multiplicación por escalar debe satisfacer. En las próximas líneas, llamamos $v$ o $w$ a elementos cualesquiera de $K^n$, $v_i$ o $w_i$ a los elementos que forman dichas tuplas, $\lambda$ o $\lambda_i$ a elementos cualesquiera de $K$ y $1_K$ al neutro multiplicativo de $K$.
+\begin{enumerate}[label=\alph*)]
+	\item
+	\begin{align*}
+		1_K\cdot v &= 1_K\cdot(v_1,\dots,v_n)\\
+		&= (1_K\cdot v_1,\dots,\cdot v_n)\\
+		&= (v_1,\dots,v_n)\\
+		&= v.
+	\end{align*}
+	\item
+	\begin{align*}
+		(\lambda_1 + \lambda_2)\cdot v &= (\lambda_1 + \lambda_2)\cdot(v_1,\dots,v_n)\\
+		&= ((\lambda_1 + \lambda_2)v_1,\dots,(\lambda_1 + \lambda_2)v_n)\\
+		&= (\lambda_1v_1 + \lambda_2v_1,\dots,\lambda_1v_2 + \lambda_2v_2)\\
+		&= (\lambda_1v_1,\dots,\lambda_1v_2) + (\lambda_2v_1,\dots,\lambda_2v_2)\\
+		&= \lambda_1(v_1,\dots,v_n) + \lambda_2(v_1,\dots,v_n)\\
+		&= \lambda_1v + \lambda_2v.
+	\end{align*}
+	\item
+	\begin{align*}
+		\lambda\cdot(v + w) &= \lambda\cdot((v_1,\dots,v_n) + (w_1,\dots,w_n))\\
+		&= \lambda\cdot(v_1+w_1,\dots,v_n+w_n)\\
+		&= (\lambda(v_1+w_1),\dots,\lambda(v_n+w_n))\\
+		&= (\lambda v_1+ \lambda w_1,\dots,\lambda v_n+\lambda w_n)\\
+		&= (\lambda v_1, \dots, \lambda v_n) + (\lambda w_1, \dots, \lambda w_n)\\
+		&= \lambda(v_1,\dots,v_n) + \lambda(w_1,\dots,w_n)\\
+		&= \lambda v + \lambda w
+	\end{align*}
+	\item
+	\begin{align*}
+		(\lambda_1\lambda_2)\cdot v &= (\lambda_1\lambda_2)\cdot(v_1,\dots,v_n)\\
+		&= ((\lambda_1\lambda_2)v_1,\dots,(\lambda_1\lambda_2)v_n)\\
+		&= (\lambda_1(\lambda_2v_1),\dots,\lambda_1(\lambda_2v_n))\\
+		&= \lambda_1(\lambda_2v_1,\dots,\lambda_2v_n)\\
+		&= \lambda_1(\lambda_2(v_1,\dots,v_n))\\
+		&= \lambda_1\cdot(\lambda_2\cdot v)
+	\end{align*}
+\end{enumerate}
+
+Ya que se cumplen todas las propiedades necesarias, queda demostrado que $(K^n, +, \cdot)$ es un $K$-espacio vectorial.
+
+$\qed$
