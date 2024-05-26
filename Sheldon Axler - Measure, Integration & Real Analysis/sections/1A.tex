@@ -1,0 +1,142 @@
+\section{Review: Riemann Integral}
+
+\subsection{Exercise 1}
+
+\begin{formulationBox}
+	Suppose $f:[a,b]\rightarrow\reals$ is a bounded function such that \[L(f,P,[a,b]) = U(f,P,[a,b])\] for some partition $P$ of $[a,b]$. Prove that $f$ is a constant function on $[a,b]$.
+\end{formulationBox}
+
+By definition,
+\begin{equation*}
+	L(f, P, [a, b]) = \sum_{j=1}^{n}(x_j-x_{j-1})\inf_{[x_{j-1,x_j}]}f
+\end{equation*}
+and
+	\begin{equation*}
+	U(f, P, [a, b]) = \sum_{j=1}^{n}(x_j-x_{j-1})\sup_{[x_{j-1,x_j}]}f
+\end{equation*}
+.
+\newpara
+Therefore, for the lower and upper Riemann sums to be equal, the infimum and the supremum of $f$ in each of the $[x_{j-1},x_j]$ subintervals need to be the same. To prove this only happens when $f$ in constant, let's suppose there exist $x_1, x_2\in\reals$ such that $f(x_1) < f(x_2)$ in an interval $[\alpha,\beta]$. By definition,
+\begin{equation*}
+	\inf_{[\alpha,\beta]}f \leq f(x_1) < f(x_2) \leq  \sup_{[\alpha,\beta]}f \implies \inf_{[\alpha,\beta]}f < \sup_{[\alpha,\beta]}f
+\end{equation*}. Therefore, we need the function to be constant in order for the infimum and the supremum to be equal to each other.
+$\qed$
+
+\subsection{Exercise 2}
+
+\begin{formulationBox}
+	Suppose $a\geq s<t\geq b$. Define $f:[a,b]\rightarrow\reals$ by
+	\[
+		f(x) =
+		\begin{cases}
+			1 &\quad s<x<t\\
+			0 &\quad \textrm{otherwise.}\\ 
+		\end{cases}
+	\]
+	Prove that $f$ is Riemann integrable on $[a,b]$ and that $\int_a^bf=t-s$.
+\end{formulationBox}
+
+\begin{center}
+\begin{tikzpicture}
+	\begin{axis}[
+		axis lines = left,
+		xmin=0,xmax=1,
+		xlabel = $x$,
+		ylabel = {$f(x)$},
+		xtick={0, 0.33,0.67, 1},
+		xticklabels={$a$, $s$, $t$, $b$},
+		ytick={0, 0.4},
+		yticklabels={$0$,$1$},
+		unbounded coords=jump,ymax=0.5,
+		scale=0.5,
+		axis equal image
+		]
+		
+		\addplot[thick, domain=0:0.33,red] {0};
+		\addplot[thick, domain=0.33:0.67,red] {0.4};
+		\addplot[thick, domain=0.67:1,red] {0};
+		%\draw[dotted] (axis cs:0.33,0) -- (axis cs:0.33,1);
+		%\draw[dotted] (axis cs:0.67,0) -- (axis cs:0.67,1);
+		\addplot[holdot] coordinates{(0.33,0.4)(0.67,0.4)};
+		\addplot[soldot] coordinates{(0,0)(0.33,0)(0.67,0)(1,0)};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+\newpara
+Let's first calculate the upper Riemann integral:
+\begin{align*}
+	U(f, [a,b]) \leq \inf_PU(f, P, [a,b]) = \inf_P\sum_{j=1}^n(x_j-x_{j-1})\sup_{[x_{j-1},x_j]}f\\
+	=\inf_P\sum_{j=1}^\alpha(x_j-x_{j-1})\sup_{[x_{j-1},x_j]}f+\inf_P\sum_{j=\alpha+1}^\beta(x_j-x_{j-1})\sup_{[x_{j-1},x_j]}f+\inf_P\sum_{j=\beta+1}^n(x_j-x_{j-1})\sup_{[x_{j-1},x_j]}f\\
+	=0+\inf_P\sum_{j=\alpha+1}^\beta(x_j-x_{j-1})\cdot1+0=\inf_P(x_\beta-x_{\alpha})=t-s
+\end{align*}
+Where $\alpha,\beta\in\reals$ such that $x_\alpha=s$ and $x_\beta=t$, and $n$ is the number of points in the partition.
+
+Likewise:
+\begin{align*}
+	L(f, [a,b]) \geq \sup_PL(f, P, [a,b]) = \sup_P\sum_{j=1}^n(x_j-x_{j-1})\inf_{[x_{j-1},x_j]}f\\	=\sup_P\sum_{j=1}^\alpha(x_j-x_{j-1})\inf_{[x_{j-1},x_j]}f+\sup_P\sum_{j=\alpha+1}^\beta(x_j-x_{j-1})\inf_{[x_{j-1},x_j]}f+\sup_P\sum_{j=\beta+1}^n(x_j-x_{j-1})\inf_{[x_{j-1},x_j]}f\\
+	=0+\sup_P\sum_{j=\alpha+1}^\beta(x_j-x_{j-1})\cdot1+0=\sup_P(x_\beta-x_\alpha)=t-s
+\end{align*}
+I'm getting confused with the notation and I don't think it's that important to enter in details right now (?).
+
+\subsection{Exercise 3}
+
+\begin{formulationBox}
+	Suppose $f:[a,b]\rightarrow\reals$ is a bounded function. Prove that $f$ is Riemann integrable if and only if for each $\epsilon>0$, there exists a partition $P$ of $[a,b]$ such that \[U(f,P,[a,b]) - L(f,P,[a,b]) < \epsilon.\]
+\end{formulationBox}
+
+To prove the first direction, we define $I$ to be the value of $\int_{a}^{b}f$. As $f$ is Riemann integrable, we have \begin{align*}
+	U(f,[a,b])=L(f,[a,b])=I\\
+	\implies\inf_PU(f,P,[a,b])=\sup_PL(f,P,[a,b])=I\\ \implies\inf_PU(f,P,[a,b])-\sup_PL(f,P,[a,b])=0
+\end{align*}.
+By definition of infimum, there exists a partition $P$ such that $U(f,P,[a,b])< I+\epsilon$ for every $\epsilon>0$. Similarly, there exists a partition $P$ such that $L(f,P,[a,b])>I-\epsilon$ for every $\epsilon>0$.
+
+For example, if we choose $\epsilon_0>0$ as the desired upper bound, there exists a partition $P$ so that
+\begin{align*}
+	U(P,f,[a,b])-L(P,f,[a,b])<(I+\frac{\epsilon_0}{3})-(I-\frac{\epsilon_0}{3})=\frac{2}{3}\epsilon_0 < \epsilon_0
+\end{align*}.
+
+We now prove the other direction. Minding that \[U(f,[a,b])=\inf_PU(f,P,[a,b])\leq U(f,P,[a,b])\] and \[L(f,[a,b])=\sup_PL(f,P,[a,b])\geq L(f,P,[a,b])\], we get \[U(f,[a,b])-L(f,[a,b])<\epsilon\]. If $f$ weren't Riemann integrable, then \[U(f,[a,b])-L(f,[a,b])=\Delta\], so there would exist an $\epsilon_0>0$ such that $\epsilon<\Delta$, contradicting the initial hypothesis. Therefore, $f$ needs to be Riemann integrable.
+$\qed$
+
+\subsection{Exercise 6}
+
+\begin{formulationBox}
+	Suppose $f:[a,b]\rightarrow\reals$ is Riemann integrable. Suppose $g:[a,b]\rightarrow\reals$ is a function such that $g(x) = f(x)$ for all except finitely many $x\in[a,b]$. Prove that $g$ is Riemann integrable on $[a,b]$ and \[\int_a^bg=\int_a^bf.\]
+\end{formulationBox}
+
+Let $x_1, x_2, ..., x_n$ denote the points where $g(x)\neq f(x)$. Each of these points will be contained in one or two subintervals of $[a,b]$. If a subinterval happens to contain more than one of these, we can adjoin a point to the partition in between them (thanks to the fact that $n$ is finite), so each subinterval contains at most one of the points.
+
+Suppose $g(x_\lambda) > f(x_\lambda)$ for some $x_\lambda$. If we replaced $f(x_\lambda)$ with $g(x_\lambda)$, the subinterval's infimum would remain the same and $L(f,P,[a,b]) = L(g,P,[a,b])\implies L(f,[a,b])=L(g,[a,b])$. The supremum, however, could change to have the value of $g(x_\lambda)$, so $U(f,P,[a,b]) \geq U(g,P,[a,b])$. As more and more points are adjoined to the partition in order to calculate the integrals, the supremum of $f$ and the supremum of $g$ would be different by $g(x_\lambda)-f(x_\lambda)$, and the total impact on the upper Riemann sum would be $U(g,P,[a,b])-U(f,P,[a,b]) = \Delta_\lambda\cdot(g(x_\lambda)-f(x_\lambda))$, with $\Delta_\lambda$ being the width of the subinterval containing $x_\lambda$. Now, for any $\epsilon>0$ we are able to reduce the width to be $\Delta_\lambda<\epsilon$, by way of adjoining more points to the partition. Therefore, even though the upper Riemann sums would be different for $f$ and for $g$, the difference can be reduced indefinitely, so the upper Riemann integral would be the same for both $f$ and $g$.
+
+If $g(x) < f(x)$, the proof will have the same structure: the upper Riemann sums are always equal (so the upper Riemann integrals are equal as well), and the lower Riemann sums are different, the difference can be reduced indefinitely, so the lower Riemann integral will be the same for both $f$ and $g$.
+
+Finally, as the upper and lower Riemann integrals are the same for $g$ and for $f$, as $f$ is Riemann integrable, $g$ will have to be so as well, and the value of the integral will be the same.
+
+$\qed$
+
+\subsection{Exercise 7}
+
+\begin{formulationBox}
+	Suppose $f:[a,b]\rightarrow\reals$ is a bounded function. For $n\in\integers^+$, let $P_n$ denote the partition that divides $[a,b]$ into $2^n$ intervals of equal size. Prove that \[L(f,[a,b]) = \lim_{n\rightarrow\infty}L(f,P_n,[a,b]) \textrm{ and } U(f,[a,b]) = \lim_{n\rightarrow\infty}U(f,P_n,[a,b])\]
+\end{formulationBox}
+
+The length of each interval is $\frac{b-a}{2^n}$. The position of the $m^\textrm{th}$ point in $P_n$ is $\frac{m(b-a)}{2^n}$.
+
+Now, we can observe that the $2m^\textrm{th}$ point in $P_{n+1}$ is equal to the $m^\textrm{th}$ point in $P_n$: \[\frac{2m(b-a)}{2^{n+1}} = \frac{2m(b-a)}{2\cdot2^n} = \frac{m(b-a)}{2^n},\] which means $P_n \subset P_{n+1}$.
+
+By theorem 1.5, \[L(f,P_n,[a,b]) \leq L(f,P_{n+1},[a,b]) \textrm{ and } U(f,P_n,[a,b]) \geq U(f,P_n,[a,b])\ \forall n\in\integers^+.\] Thus, the supremum of these lower sums will be $\Lim{n\rightarrow\infty}L(f,P_n,[a,b])$ and the infimum of the upper sums will be $\Lim{n\rightarrow\infty}U(f,P_n,[a,b])$.
+
+$\qed$
+
+\subsection{Exercise 8}
+
+\begin{formulationBox}
+	Suppose $f:[a,b]\rightarrow\reals$ is Riemann integrable. Prove that \[\int_a^bf=\lim_{n\rightarrow\infty}\frac{b-a}{n}\sum_{j=1}^{n}f(a+\frac{j(b-a)}{n})\]
+\end{formulationBox}
+
+Let's first unravel the formula above. The idea is we're dividing the interval $[a,b]$ in $n$ subintervals, each of length $\frac{b-a}{n}$. For each of these subintervals $[a_k, b_k]$, we take $f(b_k)$ (the image of the ending point of the subinterval) to form a rectangle of length $b_k-a_k$ and height $f(b_k)$, instead of the regular $\Inf{[a_k, b_k]}f$ or $\Sup{[a_k, b_k]}f$ we'd use of the lower and upper Riemann sums. What the equation says is that the sum of these rectangles approaches the Riemann integral as the number of rectangles approaches infinity.
+
+It's a trivial fact that $\Inf{[a_k, b_k]}f \leq f(b_k) \leq \Sup{[a_k, b_k]}f$ for each subinterval $k$ in any partition. Therefore, $L(f, P, [a,b]) \leq \Sum{j=1}{n}\frac{b-a}{n}f(a + \frac{j(b-a)}{n}) \leq U(f, P, [a,b])$ must also be true for any partition $P$, which also implies $L(f, [a,b]) \leq \Lim{n\rightarrow\infty}\frac{b-a}{n}\Sum{j=1}{n}f(a + \frac{j(b-a)}{n}) \leq U(f, [a,b])$. Since we're supposing $f$ is Riemann integrable, \[\Int{a}{b}f = L(f, [a,b]) \leq \Lim{n\rightarrow\infty}\frac{b-a}{n}\Sum{j=1}{n}f(a + \frac{j(b-a)}{n}) \leq U(f, [a,b]) = \Int{a}{b}f\]
+Thus,
+\[\int_a^bf = \Lim{n\rightarrow\infty}\frac{b-a}{n}\Sum{j=1}{n}f(a + \frac{j(b-a)}{n}).\]
+$\qed$

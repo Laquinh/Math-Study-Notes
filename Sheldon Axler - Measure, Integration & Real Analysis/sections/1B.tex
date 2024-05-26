@@ -1,0 +1,84 @@
+\section{Riemann Integral Is Not Good Enough}
+
+\subsection{Exercise 1}
+
+\begin{formulationBox}
+	Define $f:[0,1]\rightarrow\reals$ as follows:
+	\[
+		f(a) =
+		\begin{cases}
+			0 &\quad \textrm{if $a$ is irrational,}\\
+			\frac{1}{n} &\quad \parbox{.5\linewidth}{if $a$ is rational and $n$ is the smallest positive integer such that $a=\frac{m}{n}$ for some integer $m$.}
+		\end{cases}
+	\]
+	Show that $f$ is Riemann integrable and compute $\Int{0}{1}f$.
+\end{formulationBox}
+
+Let $P_k$ denote partitions of $[0,1]$.
+
+Every $P_k$ contains irrational numbers, which implies that the infimum of the function in each subinterval of $P_k$ is 0, thus $L(f, P_k, [0,1]) = 0\ \forall P_k$ and, therefore, $L(f, [0,1]) = 0$.
+
+At the same time, every $P_k$ contains rational numbers.
+
+Let $\mathcal{R} = r_1, r_2, \dots$ denote the rational numbers in $[0, 1]$ arranged in a way such that, for any $\epsilon>0$, there exists some $n\in\naturals$ such that $f(r_k)<\epsilon$ for all $k\geq n$.
+
+As there are a finite number of rationals until $r_k$, by the theorem proven in exercise 6, we know that these are not going to hinder the function's integrability. On the other hand, while there are infinitely many rationals after $r_k$, their image can be reduced as close to 0 as desired, as shown in the previous paragraph. Thus, while the upper Riemann sum will always be greater than 0, the infimum of the upper Riemann sum —that is, the upper Riemann integral— is 0. As the upper and lower Riemann integrals are the same, $f$ is Riemann integrable and $\Int{0}{1}f = 0$.
+
+$\qed$
+
+\subsection{Exercise 2}
+
+\begin{formulationBox}
+	Suppose $f:[a,b]\rightarrow\reals$ is a bounded function. Prove that $f$ is Riemann integrable if and only if \[L(-f, [a,b]) = -L(f, [a,b]).\]
+\end{formulationBox}
+
+Trivially, $L(-f, [a,b]) = -U(f, [a,b])$. By multiplying the equation \[-U(f,[a,b]) = -L(f,[a,b])\] by $-1$, we get the definition of the Riemann integrability.
+
+$\qed$
+
+\subsection{Exercise 4}
+
+\begin{formulationBox}
+	Give an example of bounded functions $f, g:[0,1]\rightarrow\reals$ such that \[L(f, [0,1]) + L(g, [0,1]) < L(f+g,[0,1])\] and \[U(f+g,[0,1]) < U(f, [0,1]) + U(g, [0,1]).\]
+\end{formulationBox}
+
+Define $f:[0,1]\rightarrow\reals$ as
+\[
+	f(x) =
+	\begin{cases}
+		0 &\quad \textrm{if $x$ is irrational,}\\
+		1 &\quad \textrm{if $x$ is rational}
+	\end{cases}
+\]
+
+and $g:[0,1]\rightarrow\reals$ as
+\[
+	g(x) =
+	\begin{cases}
+		1 &\quad \textrm{if $x$ is irrational,}\\
+		0 &\quad \textrm{if $x$ is rational.}
+	\end{cases}
+\]
+
+Then, $(f+g)(x) = 1\ \forall x\in[0,1]$. The first inequality holds: $0 + 0 < 1$, and the second one as well: $1 < 1 + 1$.
+
+$\qed$
+
+\subsection{Exercise 5}
+
+\begin{formulationBox}
+	Give an example of a sequence of continuous real-valued functions $f_1, f_2, \dots$ on $[0,1]$ and a continuous real-valued function $f$ on $[0,1]$ such that \[f(x)=\Lim{k\rightarrow\infty}f_k(x)\] for each $x\in[0,1]$ but \[\Int{0}{1}f \neq \Lim{k\rightarrow\infty}\Int{0}{1}f_k.\]
+\end{formulationBox}
+
+Define $f_n:[0,1]\rightarrow\reals$ as
+\[
+	f_n(x) =
+	\begin{cases}
+		\frac{\pi n}{2}\sin(\pi xn) &\quad \textrm{if $0\leq x\leq \frac{1}{n}$,}\\
+		0 &\quad \textrm{if $\frac{1}{n} < x \leq 1$.}
+	\end{cases}
+\]
+
+Then, $\Int{0}{1}f_k = 1\ \forall k\in\naturals$, thus $\Lim{k\rightarrow\infty}\Int{0}{1}f_k = 1$; however, $\Lim{k\rightarrow\infty}f_k(x) = f(x) = 0$, and $\Int{0}{1}f = 0$.
+
+$\qed$

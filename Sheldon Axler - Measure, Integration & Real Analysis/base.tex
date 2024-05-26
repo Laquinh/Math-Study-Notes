@@ -1,0 +1,80 @@
+\documentclass[11pt, a4paper, tikz]{book}
+
+\usepackage[english]{babel} %language
+\usepackage[utf8]{inputenc} %UTF-8 encoding
+\usepackage[margin=1.2in]{geometry} %smaller margin
+\usepackage{amssymb} %\nexists \mathbb
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{polynom}
+\usepackage{mathtools}
+\usepackage{enumitem}
+
+\usepackage{xlop}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+
+\definecolor{formulationFrameColor}{RGB}{255,255,255}
+\definecolor{formulationBackgroundColor}{RGB}{240,245,250}
+
+\newtcolorbox{formulationBox}{
+	colframe=formulationFrameColor,
+	colback=formulationBackgroundColor
+}
+
+\usepackage{tikz}   
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.6}
+
+\pgfplotsset{soldot/.style={color=red,only marks,mark=*}} \pgfplotsset{holdot/.style={color=red,fill=white,only marks,mark=*}}
+
+\pgfplotsset{compat=newest} % used to declare my style command.  
+
+\newcommand{\newpara}{
+	\vskip 2mm
+}
+
+\newcommand{\myOver}[2]{
+	\ensuremath{\overset{\kern2pt #1}{#2}}
+}
+
+\newcommand{\final}[1]{
+	$\mathcal{F}($#1$)$
+}
+
+\renewcommand{\qed}{\hfill\blacksquare}
+
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newcommand{\Inf}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \inf_{#1}\;$}}}
+\newcommand{\Sup}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \sup_{#1}\;$}}}
+\newcommand{\Sum}[2]{\displaystyle \sum_{#1}^{#2}}
+\newcommand{\Int}[2]{\displaystyle \int_{#1}^{#2}}
+\newcommand{\Bigcup}[2]{\displaystyle \bigcup_{#1}^{#2}}
+
+\newcommand{\naturals}{
+	\ensuremath{\mathbb{N}}
+}
+\newcommand{\integers}{
+	\ensuremath{\mathbb{Z}}
+}
+\newcommand{\rationals}{
+	\ensuremath{\mathbb{Q}}
+}
+\newcommand{\reals}{
+	\ensuremath{\mathbb{R}}
+}
+\newcommand{\complexes}{
+	\ensuremath{\mathbb{C}}
+}
+
+\newcommand{\cover}[1]{
+	\ensuremath{\mathcal{#1}}
+}
+
+\newcommand{\sigmaAlgebra}[1]{
+	\ensuremath{\mathcal{#1}}
+}
+
+\graphicspath{ {./media/} }
