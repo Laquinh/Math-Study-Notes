@@ -163,3 +163,42 @@ $\qed$
 	\[\alpha=1, \beta=1, \gamma=1, \delta=0\]
 	cumplen todas las ecuaciones, luego $\textbf{x}\in S$ y sus coordenadas son $(1,1,1,0)$.
 \end{enumerate}
+
+\section{Ejercicio 5}
+
+\begin{formulationBox}
+	Estudiar si el conjunto
+	\begin{align*}
+		S = \{&0000000, 0110100, 0011010, 0001101,\\
+		&1000110, 1001011, 1011100, 0010111,\\
+		&1010001, 1110010, 0111001, 1111111,\\
+		&0101110, 1101000, 0100011, 1100101\}
+	\end{align*}
+	es un $\mathbb{F}_2$-subespacio vectorial de $\mathbb{F}_2^7$. En caso de que lo sea, calcula la dimensión de $S$.
+\end{formulationBox}
+
+Notemos que $|S| = 16 = 2^4$. Ya que $|\mathbb{F}_2| = \{0, 1\}$, la única forma de que una base generara exactamente $16$ palabras sería que esta tuviera cardinalidad $4$.
+
+Tomamos cuatro palabras de $S$ que sean linealmente independientes:
+\[\mathcal{B} = \{0110100, 0011010, 0001101, 1000110\}.\]
+
+Verificamos que son linealmente independientes:
+\begin{align*}
+	0000000 &= \alpha(0110100) + \beta(0011010) + \gamma(0001101) + \delta(1000110)\\
+	&= (\delta)(\alpha)(\alpha+\beta)(\beta+\gamma)(\alpha+\gamma+\delta)(\beta+\delta)(\gamma).
+\end{align*}
+implica
+\[\alpha=\beta=\gamma=\delta=0.\]
+
+Ahora tratamos de dar coordenadas a todos los elementos de $S$:
+\[
+	\footnotesize
+	\begin{array}{r@{\ }l@{\quad}r@{\ }l@{\quad}r@{\ }l@{\quad}r@{\ }l}
+		0000000&=(0,0,0,0) & 0110100&=(1,0,0,0) & 0011010&=(0,1,0,0) & 0001101&=(0,0,1,0)\\
+		1000110&=(0,0,0,1) & 1001011&=(0,0,1,1) & 1011100&=(0,1,0,1) & 0010111&=(0,1,1,0)\\
+		1010001&=(0,1,1,1) & 1110010&=(1,0,0,1) & 0111001&=(1,0,1,0) & 1111111&=(1,0,1,1)\\
+		0101110&=(1,1,0,0) & 1101000&=(1,1,0,1) & 0100011&=(1,1,1,0) & 1100101&=(1,1,1,1)
+	\end{array}
+\]
+
+Nótese que todas las coordenadas son distintas entre sí. Así, queda comprobado que $\mathcal{B}$ es un sistema generador de $S$ además de ser libre, por lo que podemos afirmar que es una base de $S$, que $S$ es un subespacio vectorial y que su dimensión es $\dim_{\mathbb{F}_2^7}S = 4$.
