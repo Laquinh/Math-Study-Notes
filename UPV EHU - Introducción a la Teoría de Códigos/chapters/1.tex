@@ -121,3 +121,45 @@ $\qed$
 	El cardinal de esta base es $|\mathcal{B}_2| = n-1$, puesto que tiene $n-1$ elementos. Por lo tanto,
 	\[\dim_{\mathbb{F}_q}(S_2) = n-1.\]
 \end{enumerate}
+
+\section{Ejercicio 4}
+
+\begin{formulationBox}
+	Sea $S$ el subespacio vectorial de $\mathbb{F}_2^7$ definido por
+	\[S=<1101000, 0110100, 0011010, 0001101>.\]
+	\begin{enumerate}[label=\alph*)]
+		\item Halla una base de $S$ y la dimensión de $S$.
+		\item Estudia si la palabra $\textbf{x} = 1000110$ pertenece a $S$ y, en caso de que esté, calcula las coordenadas de $\textbf{x}$ en la base calculada en el apartado anterior.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item La definición está dada por el sistema generador $\mathcal{B} = \{1101000, 0110100, 0011010, 0001101\}$. Este sistema generador es, a su vez, una base; podemos comprobar que todas sus palabras son libres ya que
+	\begin{align*}
+		0000000 &= \alpha(1101000) + \beta(0110100) + \gamma(0011010) + \delta(0001101)\\
+		&= (\alpha)(\alpha+\beta)(\beta+\gamma)(\alpha+\gamma+\delta)(\beta+\delta)(\gamma)(\delta)
+	\end{align*}
+	implica
+	\[\alpha=\beta=\gamma=\delta=0.\]
+	La dimensión del subespacio será
+	\[\dim_{\mathbb{F}_2^7}S = |\mathcal{B}| = 4.\]
+	
+	\item Tratemos de escribir $\textbf{x} = 1000110$ como combinación lineal de las palabras de la base:
+	\begin{align*}
+		1000110 &= \alpha(1101000) + \beta(0110100) + \gamma(0011010) + \delta(0001101)\\
+		&= (\alpha)(\alpha+\beta)(\beta+\gamma)(\alpha+\gamma+\delta)(\beta+\delta)(\gamma)(\delta).
+	\end{align*}
+	De ahí, obtenemos las siguientes ecuaciones:
+	\begin{align*}
+		\alpha &= 1\\
+		\alpha+\beta &= 0\\
+		\beta+\gamma &= 0\\
+		\alpha+\gamma+\delta &= 0\\
+		\beta+\delta &= 1\\
+		\gamma &= 1\\
+		\delta &= 0.
+	\end{align*}
+	Vemos que
+	\[\alpha=1, \beta=1, \gamma=1, \delta=0\]
+	cumplen todas las ecuaciones, luego $\textbf{x}\in S$ y sus coordenadas son $(1,1,1,0)$.
+\end{enumerate}
