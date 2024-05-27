@@ -60,3 +60,64 @@ Por otra parte, comprobamos las propiedades que la multiplicación por escalar d
 Ya que se cumplen todas las propiedades necesarias, queda demostrado que $(K^n, +, \cdot)$ es un $K$-espacio vectorial.
 
 $\qed$
+
+\section{Ejercicio 2}
+
+\begin{formulationBox}
+	Estudiar si los siguientes conjuntos son $\mathbb{F}_q$-subespacios vectoriales de $\mathbb{F}_q^n$ y determinar su dimensión.
+	\begin{enumerate}[label=\alph*)]
+		\item $S_1=\{(a,a,\dots,a)|a\in\mathbb{F}_q\}\subseteq\mathbb{F}_q^n$.
+		\item $S_2=\{(x_1,\dots,x_n)\in\mathbb{F}_q^n|x_n=\sum_{i=1}^{n-1}x_i\}$.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item Para cualesquiera $(x,\dots,x),(y,\dots,y)\in S_1$ y cualesquiera escalares $\alpha,\beta\in\mathbb{F}_q$, se cumple
+	\[\alpha(x,\dots,x) + \beta(y,\dots,y) = (\alpha x + \beta y,\dots,\alpha x + \beta y),\]
+	que también es un vector de $S_1$ puesto que $\alpha x + \beta y \in\mathbb{F}_q$, luego $S_1$ es un $\mathbb{F}_q$-subespacio vectorial de $\mathbb{F}_q^n$.
+	
+	Para calcular la dimensión de $S_1$, ideamos primero una base $\mathcal{B}_1 = (1,\dots,1)$. Es una base ya que
+	\begin{enumerate}[label=\arabic*)]
+		\item Para todo $(x,\dots,x)\in S_1$ se escribe:
+		\[(x,\dots,x) = x(1_{\mathbb{F}_q},\dots,1_{\mathbb{F}_q})\]
+		con $x\in\mathbb{F}_q$, luego $\mathcal{B}_1$ es un sistema generador para $S_1$.
+		\item El conjunto $\mathcal{B}_1$ es libre ya que
+		\[(0_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q}) = \alpha(1_{\mathbb{F}_q},\dots,1_{\mathbb{F}_q}) = (\alpha,\dots\alpha)\]
+		implica $\alpha=0_{\mathbb{F}_q}$.
+	\end{enumerate}
+	El cardinal de esta base es $|\mathcal{B}_1| = 1$, puesto que tiene un único elemento. Por lo tanto,
+	\[\dim_{\mathbb{F}_q}(S_1) = 1.\]
+	
+	\item Para cualesquiera $(x_1,\dots,\sum_{i=1}^{n-1}x_i),(y_1,\dots,\sum_{i=1}^{n-1}y_i)\in S_2$ y cualesquiera escalares $\alpha,\beta\in\mathbb{F}_q$, se cumple
+	\[\alpha(x_1,\dots,\sum_{i=1}^{n-1}x_i) + \beta(y_1,\dots,\sum_{i=1}^{n-1}y_i) = (\alpha x_1 + \beta y_1,\dots,\alpha \sum_{i=1}^{n-1}x_i + \beta \sum_{i=1}^{n-1}y_i)\]
+	que satisface
+	\[\sum_{i=1}^{n-1}(\alpha x_i + \beta y_i) = \sum_{i=1}^{n-1}\alpha x_i + \sum_{i=1}^{n-1}\beta y_i = \alpha \sum_{i=1}^{n-1}x_i + \beta \sum_{i=1}^{n-1}y_i,\]
+	luego $S_2$ es un $\mathbb{F}_q$-subespacio vectorial de $\mathbb{F}_q^n$.
+	
+	Para calcular la dimensión de $S_2$, ideamos primero una base
+	\[\mathcal{B}_2 = \{(1_{\mathbb{F}_q},0_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q},1_{\mathbb{F}_q}), (0_{\mathbb{F}_q},1_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q},1_{\mathbb{F}_q}),\dots,(0_{\mathbb{F}_q},0_{\mathbb{F}_q},\dots,1_{\mathbb{F}_q},1_{\mathbb{F}_q})\}.\]
+	Es una base ya que
+	\begin{enumerate}[label=\arabic*)]
+		\item Para todo $(x_1,\dots,\sum_{i=1}^{n-1}x_i)\in S_2$ se escribe:
+		\[
+			\begin{array}{r@{\ }l@{\ }l@{\ }l}
+				(x_1,\dots,\sum_{i=1}^{n-1}x_i)&= \mathrlap{(x_1,x_2\dots,x_{n-1},x_1+\dots+x_n)}\\
+				&= x_1(1_{\mathbb{F}_q},0_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q},1_{\mathbb{F}_q}) &+& x_2(0_{\mathbb{F}_q},1_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q},1_{\mathbb{F}_q})\\
+				&	&+& \dots\\
+				&	&+& x_{n-1}(0_{\mathbb{F}_q},0_{\mathbb{F}_q},\dots,1_{\mathbb{F}_q},1_{\mathbb{F}_q})
+			\end{array}
+		\]
+		con $x_i\in\mathbb{F}_q\forall i\in\{1,\dots,n-1\}$, luego $\mathcal{B}_2$ es un sistema generador para $S_2$.
+		
+		\item El conjunto $\mathcal{B}_2$ es libre ya que
+		\begin{align*}
+			(0_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q}) = \alpha_1(1_{\mathbb{F}_q},0_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q},1_{\mathbb{F}_q}) &+ \alpha_2(0_{\mathbb{F}_q},1_{\mathbb{F}_q},\dots,0_{\mathbb{F}_q},1_{\mathbb{F}_q})\\
+			&+ \dots\\
+			&+ \alpha_{n-1}(0_{\mathbb{F}_q},0_{\mathbb{F}_q},\dots,1_{\mathbb{F}_q},1_{\mathbb{F}_q})
+		\end{align*}
+		implica
+		\[\alpha_1=\alpha_2=\dots=\alpha_{n-1}=0.\]
+	\end{enumerate}
+	El cardinal de esta base es $|\mathcal{B}_2| = n-1$, puesto que tiene $n-1$ elementos. Por lo tanto,
+	\[\dim_{\mathbb{F}_q}(S_2) = n-1.\]
+\end{enumerate}
