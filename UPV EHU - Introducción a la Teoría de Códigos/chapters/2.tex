@@ -39,3 +39,40 @@ Debemos estudiar si se satisface la siguiente ecuación:
 	\end{align*}
 	por lo que $9783662479735$ es un código EAN.
 \end{enumerate}
+
+\section{Ejercicio 2}
+
+\begin{formulationBox}
+	Determinar el valor de $a$ para que las siguientes tuplas correspondan a un código EAN:
+	\begin{enumerate}[label=\alph*)]
+		\item 843a554161836
+		\item 4325351455a52
+		\item 978421345667a
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item
+	\begin{align*}
+		3\sum_{i=0}^5a_{2i+1} + \sum_{i=0}^6a_{2i} & = 3(4+a+5+1+1+3) + (8+3+5+4+6+8+6)\\
+		&= 3a + 42 + 40\\
+		&= 3a + 82 \equiv 0 \mod 10 \implies 3a \equiv 8 \mod 10 \implies a = 6.
+	\end{align*}
+	resultando en el código EAN $8436554161836$.
+	
+	\item
+	\begin{align*}
+		3\sum_{i=0}^5a_{2i+1} + \sum_{i=0}^6a_{2i} & = 3(3+5+5+4+5+5) + (4+2+3+1+5+a+2)\\
+		&= 81 + 17 + a\\
+		&= 98 + a \equiv 0 \mod 10 \implies a \equiv 2 \mod 10 \implies a = 2,
+	\end{align*}
+	resultando en el código EAN $4325351455252$.
+	
+	\item
+	\begin{align*}
+		3\sum_{i=0}^5a_{2i+1} + \sum_{i=0}^6a_{2i} & = 3(7+4+1+4+6+7) + (9+8+2+3+5+6+a)\\
+		&= 87 + 33 + a\\
+		&= 120 + a \equiv 0 \mod 10 \implies a \equiv 0 \mod 10 \implies a = 0,
+	\end{align*}
+	resultando en el código EAN $9784213456670$.
+\end{enumerate}
