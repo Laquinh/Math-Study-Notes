@@ -76,3 +76,17 @@ Debemos estudiar si se satisface la siguiente ecuación:
 	\end{align*}
 	resultando en el código EAN $9784213456670$.
 \end{enumerate}
+
+\section{Ejercicio 3}
+
+\begin{formulationBox}
+	Determinar la distancia mínima del código EAN. Deducir cuántos errores detecta y corrige. Probar que el código detecta la transposición de dos dígitos consecutivos; es decir, del cambio de la palabra $a_0\dots a_ia_{i+1}a_{12}$ del código por $a_0\dots a_{i+1}a_i\dots a_{12}$, con $i\in\{0,\dots,11\}$.
+\end{formulationBox}
+
+Si tomamos una palabra del código EAN y le cambiamos un solo dígito, siempre nos veremos obligados a cambiar uno más para compensarlo y que vuelva a satisfacerse la ecuación. Por lo tanto, no hay palabras en el código que difieran entre sí en un solo dígito, mas sí en $2$, por lo que la distancia mínima del código EAN es $d(C_{EAN})=2$.
+
+Siguiendo el mismo razonamiento, si tomamos una palabra $\textbf{c}\in C_{EAN}$ y le cambiamos un solo dígito, obteniendo una nueva palabra $\textbf{y}$, la ecuación no va a satisfacerse para $\textbf{y}$, por lo que podremos detectar el error. Esto no ocurre cuando hay más de un cambio. Por tanto, el código EAN detecta hasta 1 error.
+
+Sin embargo, si recibimos la palabra $\textbf{y}$, hay múltiples palabras $\textbf{c}\in C_{EAN}$ tales que $d(\textbf{c}, \textbf{y}) = 1$; es decir, la palabra $\textbf{y}$ no tiene una decodificación única, luego el código EAN no corrige ningún error.
+
+Al contrario de lo que insinúa el enunciado, el código EAN no siempre es capaz de detectar la transposición de dos dígitos consecutivos. Por ejemplo, si tomamos la palabra $\textbf{c} = 8771493526675$ y le aplicamos la transposición a los dígitos consecutivos $4$ y $9$, obtenemos la palabra $\textbf{c}' = 8771943526675$, que ¡también pertenece a $C_{EAN}$! y, por lo tanto, no va a ser detectado el error.
