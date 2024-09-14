@@ -15,12 +15,46 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tcolorbox}
 
+\usepackage[
+	%backend=bibtex,
+	backend=biber,
+	style=alphabetic,
+	sorting=ynt,
+]{biblatex}
+
+\usepackage{listings}
+
+\definecolor{pythonKeywordColor}{RGB}{100, 100, 255}
+\definecolor{pythonStringColor}{RGB}{255, 100, 100}
+\definecolor{pythonCommentColor}{RGB}{100, 175, 100}
+
+\lstset{ 
+	language=Python,         % Set the language to Python
+	basicstyle=\ttfamily\scriptsize,     % Use a monospaced font
+	keywordstyle=\color{pythonKeywordColor},% Python keywords will be blue
+	stringstyle=\color{pythonStringColor},  % Strings will be red
+	commentstyle=\color{pythonCommentColor},% Comments will be green
+	showstringspaces=false,   % Don't show spaces in strings
+	breaklines=true           % Break lines if they are too long
+}
+
+\definecolor{primaryEdgeColor}{RGB}{0, 0, 0}
+\definecolor{secondaryEdgeColor}{RGB}{200, 200, 200}
+
 \definecolor{formulationFrameColor}{RGB}{255,255,255}
 \definecolor{formulationBackgroundColor}{RGB}{240,245,250}
+
+\definecolor{draftFrameColor}{RGB}{255,255,255}
+\definecolor{draftBackgroundColor}{RGB}{255,235,220}
 
 \newtcolorbox{formulationBox}{
 	colframe=formulationFrameColor,
 	colback=formulationBackgroundColor
+}
+
+\newtcolorbox{draftBox}{
+	colframe=draftFrameColor,
+	colback=draftBackgroundColor
 }
 
 \usepackage{tikz}   
@@ -77,4 +111,7 @@
 	\ensuremath{\mathcal{#1}}
 }
 
+\DeclareMathOperator{\trace}{tr}
+
 \graphicspath{ {./media/} }
+\usetikzlibrary{graphs,graphs.standard}

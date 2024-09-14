@@ -90,3 +90,98 @@ Siguiendo el mismo razonamiento, si tomamos una palabra $\textbf{c}\in C_{EAN}$ 
 Sin embargo, si recibimos la palabra $\textbf{y}$, hay múltiples palabras $\textbf{c}\in C_{EAN}$ tales que $d(\textbf{c}, \textbf{y}) = 1$; es decir, la palabra $\textbf{y}$ no tiene una decodificación única, luego el código EAN no corrige ningún error.
 
 Al contrario de lo que insinúa el enunciado, el código EAN no siempre es capaz de detectar la transposición de dos dígitos consecutivos. Por ejemplo, si tomamos la palabra $\textbf{c} = 8771493526675$ y le aplicamos la transposición a los dígitos consecutivos $4$ y $9$, obtenemos la palabra $\textbf{c}' = 8771943526675$, que ¡también pertenece a $C_{EAN}$! y, por lo tanto, no va a ser detectado el error.
+
+\section{Ejercicio 4}
+
+\begin{formulationBox}
+	Sea $C$ un código de bloque sobre $\mathbb{F}_q$ de longitud $n$. Se llama \textit{polinomio enumerador de pesos} de $C$ al polinomio
+	\[W_C(x,y) = \sum_{i=0}^n a_i x^i y^{n-i}, \quad \text{siendo } a_i = |\{c \in C \mid w(c) = i\}|.\]
+	
+	Calcular $W_C(x,y)$ para los siguientes códigos:
+	
+	\begin{enumerate}[label=\alph*)]
+		\item $C_1 = \{aa\dots a \mid a\in\mathbb{F}_q\} \subseteq \mathbb{F}_q^n$ (Código de repetición)
+		\item $C_2 = \{x_1\dots x_n \mid x_i\in\mathbb{F}_q, i = 1, \dots, n, x_n = \sum_{i=1}^{n-1} x_i \}$ (Código de paridad)
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item El código $C_1$ tiene $q$ palabras distintas, cada una de las cuales tiene exactamente $n$ componentes idénticos.
+	
+	En el caso de la palabra $\mathbf{x_0} = 00\dots0$, no hay componentes no nulas, por lo que $w(\mathbf{x_0}) = 0$. Es el único caso en que ocurre esto, luego, según la definición dada para el polinomio enumerador de pesos, $a_0 = 1$.
+	
+	Por otra parte, todas las palabras $aa\dots a$ tales que $a\neq0$ tienen un peso de $n$. Como hay $q-1$ palabras que cumplen esto, $a_n = q-1$.
+	
+	Por último, $a_i = 0$ si y solo si $i \notin \{0, n\}$.
+	
+	Así, obtenemos el polinomio
+	\[W_{C_1}(x, y) = \sum_{i=0}^n a_i x^i y^{n-i} = y^n + (q-1)x^n.\]
+	
+	\item \hspace*{1mm}
+	
+	\begin{draftBox}
+		Este ejercicio no está del todo resuelto. El texto a continuación es tan solo un borrador.
+	\end{draftBox}
+	
+	En el código $C_2$, las palabras pueden tener cualquier secuencia de $n-1$ elementos de $\mathbb{F}_q$, seguidas siempre de un último elemento (la llamaremos \textit{letra de paridad}) definido como la suma de los anteriores.
+	
+	%La única manera de que el peso de una palabra sea $0$ es que todas las letras sean $0$, luego $a_0 = 1$.
+	
+	%No hay ninguna palabra cuyo peso sea $1$; si se decidiera cambiar un único componente, también se acabaría cambiando la letra de paridad también. Por tanto, $a_1 = 0$.
+	
+	%Vamos a estudiar el código de paridad binario por simplificar los cálculos.
+	
+	Es fácil ver que la dimensión del código es $n-1$, pues la letra de paridad es linealmente dependiente de las demás.
+	
+	Intentando resolver el problema, escribí un código en el lenguaje de programación Python, en un fichero llamado \texttt{counter.py} (véase el apéndice A). Este \textit{script} calcula por fuerza bruta todos los $a_i$ para cualesquiera (pero no muy grandes) valores de $q$ y $n$. Con ayuda de la OEIS \cite{OEIS:A109499},
+	
+	Para facilitar la visualización de las palabras de $C_2$, vamos a hacer uso de la Teoría de Grafos. Vamos a comenzar estudiando las palabras con peso igual a $n$ (es decir, que no contengan ningún $0$).
+	
+	Visualizaremos el conjunto de dichas palabras de $C_2$ como un grafo completo de $q$ vértices (numerados de $0$ a $q-1$), y cada una de esas palabras palabras como caminos de longitud $n-1$ en dicho grafo, de la siguiente manera: el valor de una letra $x_i$ representa una arista desde un vértice hasta el vértice que se encuentra $x_i$ a la derecha; y el valor $x_{n-1}$ representa el vértice final del camino.
+	
+	Por ejemplo, la palabra $32132$ del código $C_2$ con $q=7$ y $n=5$ se puede entender como el siguiente camino:
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\graph[n=7, counterclockwise, radius=3cm, edge={secondaryEdgeColor}]
+			{
+				subgraph K_n [V={0,1,2,3,4,5,6}];
+			};
+			\foreach \source/\dest in {0/3, 3/5, 5/6, 6/2}
+			{
+				\draw[primaryEdgeColor, ultra thick] (\source) -- (\dest);
+			}
+		\end{tikzpicture}
+	\end{center}
+	\[0 \xrightarrow{+3} 3 \xrightarrow{+2} 5 \xrightarrow{+1} 6 \xrightarrow{+3} 2.\]
+	
+	Notemos que podemos conseguir un camino cerrado si añadimos una arista desde el último vértice a $0$. Por ejemplo, en el anterior ejemplo, obtendríamos el siguiente camino cerrado:
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\graph[n=7, counterclockwise, radius=3cm, edge={secondaryEdgeColor}]
+			{
+				subgraph K_n [V={0,1,2,3,4,5,6}];
+			};
+			\foreach \source/\dest in {0/3, 3/5, 5/6, 6/2, 2/0}
+			{
+				\draw[primaryEdgeColor, ultra thick] (\source) -- (\dest);
+			}
+		\end{tikzpicture}
+	\end{center}
+	\[0 \xrightarrow{+3} 3 \xrightarrow{+2} 5 \xrightarrow{+1} 6 \xrightarrow{+3} 2 \xrightarrow{-2} 0.\]
+	
+	Según nuestra interpretación, un $0$ significaría un movimiento al mismo vértice; pero esto está prohibido por nuestra definición del grafo, puesto que no existen aristas con el mismo vértice de salida que de llegada.
+	
+	Así, queda claro que averiguar el número de palabras con peso igual a $n$ es equivalente a hallar el número de caminos cerrados de longitud $n$ en un grafo completo de $q$ vértices.
+	
+	Para esto, primero sacaremos la matriz de adyacencia $A$ del grafo completo, que no es más que una matriz de $q\times q$ con todos los elementos iguales a $1$ salvo los de la diagonal, que están a $0$. Visto de otra manera, $A = J-I$, siendo $J$ la matriz con todos los elementos a $1$ e $I$ la matriz de identidad.
+	
+	La matriz $J$ tiene un único autovalor no nulo, que tiene valor $q$, mientras que los demás autovalores son $0$. Al restarle la matriz identidad, los autovalores disminuyen en $1$, por lo que $A$ tiene un autovalor $q-1$ con multiplicidad $1$ y autovalores $-1$ con multiplicidad $q-1$ \cite{fox2009}.
+	
+	Esto nos es útil ya que el número de caminos cerrados de longitud $n$ es igual a la traza de $A^n$, que a su vez está dada por la suma de los autovalores de $A^n$ (que son iguales a los autovalores de $A$ elevados a $n$); es decir, $\trace(A^n) = (q-1)^n + (-1)^n(q-1)$.
+	
+	Este valor es el número de caminos cerrados de longitud $n$ partiendo de cualquier nodo. Como hay $q$ nodos, para obtener la cantidad de dichos caminos partiendo de un nodo en concreto, podemos dividir la traza de antes entre $q$. De esta forma, obtendremos la expresión que buscábamos originalmente:
+	
+	\[a_n = \frac{(q-1)^n + (-1)^n(q-1)}{q}.\]
+\end{enumerate}
