@@ -279,3 +279,20 @@ $\qed$
 	y de ahí sigue que
 	\[|\overline{B}(\textbf{x}, r)| = \sum_{i=0}^r\binom{n}{i}(m-1)^i.\]
 \end{proof}
+
+\section{Ejercicio 8}
+
+\begin{formulationBox}
+	Sea $C\subseteq T_n$ un código de bloque de longitud $n$ sobre un alfabeto $A$ con distancia mínima $d$. Demostrar que $C$ es perfecto si y solo si $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor) = T_n$.
+\end{formulationBox}
+
+Un código $C$ es perfecto si alcanza la cota de Hamming; es decir, si se cumple que
+\[|C|\sum_{i=0}^{\lfloor\frac{d-1}{2}\rfloor} \binom{n}{i} (m-1)^i = m^n.\]
+
+La expresión que hay en la parte izquierda hace referencia al número de palabras que están incluidas en alguna bola de radio $\lfloor\frac{d-1}{2}\rfloor$. Que el código alcance la cota de Hamming significa que el número de palabras que están incluidas en alguna bola con dicho radio es igual al número de palabras en $T_n$ (ya que $|T_n| = m^n$).
+
+Notemos ahora que $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor)$ es la unión de todas esas bolas. Evidentemente, $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor) \subseteq T_n$. Si el código alcanza la cota de Hamming, $|\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor)| = m^n = |T_n|$. Como tenemos un subconjunto con la misma cardinalidad que su superconjunto, podemos concluir que son el mismo conjunto.
+
+Similarmente, si sabemos que son el mismo conjunto, entonces sus cardinalidades deben ser iguales, por lo que el número de palabras incluidas en alguna bola será igual al número de palabras en total en $T_n$, que es precisamente equivalente a alcanzar la cota de Hamming.
+
+$\qed$
