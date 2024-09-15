@@ -236,3 +236,15 @@ La distancia de Hamming es el número de letras que no tienen en común $\textbf
 Por tanto, podemos calcular a distancia de Hamming como el número de letras con valor $1$ que hay en total entre $\textbf{x}$ e $\textbf{y}$ (es decir, $w(\textbf{x}) + w(\textbf{y})$), descontando los que tienen en común dichas palabras (hay $w(\textbf{x}\cap\textbf{y})$ letras con valor $1$ en común; y se han contado por duplicado, una vez por cada palabra). Es decir, \[d(\textbf{x}, \textbf{y}) = w(\textbf{x}) + w(\textbf{y}) - 2w(\textbf{x}\cap\textbf{y}).\]
 
 $\qed$
+
+\section{Ejercicio 7}
+
+\begin{formulationBox}
+	Sea $C\subseteq T_n$ un código de longitud $n$ sobre el alfabeto $A = \{a_1,\hdots,a_m\}$ con distancia mínima $d$. Demostrar que si $\textbf{c}, \textbf{c'}\in C$ son dos palabras distintas de $C$, entonces $\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor) \cap \overline{B}(\textbf{c'}, \lfloor\frac{d-1}{2}\rfloor) = \emptyset$.
+\end{formulationBox}
+
+Presentamos una prueba por contradicción.
+
+Supongamos que existe una palabra $\textbf{p}$ tal que $\textbf{p}\in\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor)$ y $\textbf{p}\in\overline{B}(\textbf{c'}, \lfloor\frac{d-1}{2}\rfloor)$. Es inmediato que tanto $\textbf{c}$ como $\textbf{c'}$ pertenecen a la bola $\overline{B}(\textbf{p}, \lfloor\frac{d-1}{2}\rfloor)$. El diámetro de la bola $\overline{B}(\textbf{p}, \lfloor\frac{d-1}{2}\rfloor)$ es $d-1$, luego la distancia entre $\textbf{c}$ y $\textbf{c'}$ es como mucho $d-1$, lo cual contradice la definición de $d$.
+
+$\qed$
