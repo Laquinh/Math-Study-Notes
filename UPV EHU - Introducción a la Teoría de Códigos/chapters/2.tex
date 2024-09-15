@@ -248,3 +248,34 @@ Presentamos una prueba por contradicción.
 Supongamos que existe una palabra $\textbf{p}$ tal que $\textbf{p}\in\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor)$ y $\textbf{p}\in\overline{B}(\textbf{c'}, \lfloor\frac{d-1}{2}\rfloor)$. Es inmediato que tanto $\textbf{c}$ como $\textbf{c'}$ pertenecen a la bola $\overline{B}(\textbf{p}, \lfloor\frac{d-1}{2}\rfloor)$. El diámetro de la bola $\overline{B}(\textbf{p}, \lfloor\frac{d-1}{2}\rfloor)$ es $d-1$, luego la distancia entre $\textbf{c}$ y $\textbf{c'}$ es como mucho $d-1$, lo cual contradice la definición de $d$.
 
 $\qed$
+
+\section{Lema 3.2}
+
+\begin{formulationBox}
+	\begin{lemma}
+		Sea $A = \{a_1,\hdots,a_m\}$ un alfabeto, $\textbf{x} = x_1\hdots x_n \in T_n$ y $0\leq r\leq n$. Entonces,
+		\[|\overline{B}(\textbf{x}, r)| = \sum_{i=0}^r\binom{n}{i}(m-1)^i.\]
+	\end{lemma}
+\end{formulationBox}
+
+\begin{proof}
+	La expresión $|\overline{B}(\textbf{x}, r)|$ se refiere al número de palabras de $T_n$ que difieren de $\textbf{x}$ en $r$ letras o menos. Vamos a construir la fórmula para su cómputo.
+	
+	Llamamos \textit{esfera de centro $\textbf{x}$ y radio $r$} al conjunto
+	\[S(\textbf{x}, r) = \{\textbf{y}\in A^n\mid\mathrm{d}(\textbf{x},\textbf{y}) = r\}.\]
+	Podemos interpretar que las palabras en dicha esfera difieren de $\textbf{x}$ en exactamente $r$ letras.
+	
+	Puesto que la distancia de Hamming siempre devuelve números enteros, podemos reescribir la fórmula para el cardinal de la bola de la siguiente manera:
+	\[|\overline{B}(\textbf{x}, r)| = \sum_{i=0}^r|S(\textbf{x}, i)|.\]
+	
+	Ahora la tarea se reduce a hallar una expresión para $|S(\textbf{x}, i)|$.
+	
+	Notemos que, si modificamos cualesquiera $i$ letras de $\textbf{x}$, podemos llegar a cualquier palabra en la esfera. Y, por definición de \textit{combinación}, tenemos exactamente $\binom{n}{i}$ posibles combinaciones de posiciones a modificar.
+	
+	Para cada una de las $i$ posiciones, podemos elegir entre $m-1$ letras diferentes a las que cambiar (ya que no podemos dejar ninguna de las posiciones sin modificar, debemos descontar la letra que viene en $\textbf{x}$). Es decir, que para cada combinación de posiciones tenemos $(m-1)^i$ modificaciones posibles.
+	
+	Por tanto,
+	\[|S(\textbf{x}, i)| = \binom{n}{i}(m-1)^i,\]
+	y de ahí sigue que
+	\[|\overline{B}(\textbf{x}, r)| = \sum_{i=0}^r\binom{n}{i}(m-1)^i.\]
+\end{proof}
