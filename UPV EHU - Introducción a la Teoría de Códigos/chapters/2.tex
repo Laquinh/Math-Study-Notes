@@ -185,3 +185,33 @@ Al contrario de lo que insinúa el enunciado, el código EAN no siempre es capaz
 	
 	\[a_n = \frac{(q-1)^n + (-1)^n(q-1)}{q}.\]
 \end{enumerate}
+	
+\section{Ejercicio 5}
+
+\begin{formulationBox}
+	Sea $A = \{a_1,\hdots,a_m\}$ un alfabeto, $T_n = \{x_1\hdots x_n|x_i\in A, i=1,\hdots,n\}$ y $d:T_n\times T_n\rightarrow\{0,1,2,\hdots,n\}$ la aplicación definida por
+	\[d(x_1\hdots x_n, y_1\hdots y_n) = |\{i\in\{1,\hdots,n\}|x_i\neq y_i\}|,\]
+	para todo $x_1\hdots x_n, y_1\hdots y_n\in T_n$. Demostrar que $d$ es una distancia.
+\end{formulationBox}
+
+Dicho de otra manera, la distancia $d(\textbf{x}, \textbf{y})$ es el número de letras que las palabras en que difieren $\textbf{x}$ e $\textbf{y}$ (distancia de Hamming).
+
+Primero, recordemos las propiedades de las distancias:
+
+\begin{enumerate}[label=\alph*)]
+	\item La distancia de un punto a sí mismo es $0$.
+	\item La distancia entre dos puntos distintos es positiva.
+	\item La distancia de $x$ a $y$ es la misma que de $y$ a $x$.
+	\item Se cumple la desigualdad triangular:
+	\[d(x, y) \leq d(x, z) + d(z, y).\]
+\end{enumerate}
+
+Ahora, verificamos que se cumplen para la aplicación definida en el enunciado:
+
+\begin{enumerate}[label=\alph*)]
+	\item En efecto, $d(x_1\hdots x_n, x_1\hdots x_n) = |\{i\in\{1,\hdots,n\}|x_i\neq x_i\}| = |\{\}| = 0$.
+	\item Si $x_1\hdots x_n$ y $x_1\hdots y_n$ son palabras distintas, significa que deben diferir en al menos una letra; es decir, debe existir al menos un valor de $i$ tal que $x_i\neq y_i$, por lo que la cardinalidad de $\{i\in\{1,\hdots,n\}|x_i\neq y_i\}$ será como mínimo de $1$.
+	\item Es inmediato que esto se cumple, ya que si $x_i\neq y_i$, entonces $y_i \neq x_i$.
+	\item La desigualdad estricta se da cuando $\textbf{x}$ e $\textbf{y}$ tienen al menos una letra en común que es distinta en $\textbf{z}$. Si esto no ocurre, la igualdad se cumple. En cualquier caso, no puede haber una letra no coincida entre $\textbf{x}$ e $\textbf{y}$ y, sin embargo, coincida entre $\textbf{x}$ y $\textbf{z}$ y entre $\textbf{z}$ e $\textbf{y}$.
+\end{enumerate}
+
