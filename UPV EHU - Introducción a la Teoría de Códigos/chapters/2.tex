@@ -215,6 +215,8 @@ Ahora, verificamos que se cumplen para la aplicación definida en el enunciado:
 	\item La desigualdad estricta se da cuando $\textbf{x}$ e $\textbf{y}$ tienen al menos una letra en común que es distinta en $\textbf{z}$. Si esto no ocurre, la igualdad se cumple. En cualquier caso, no puede haber una letra no coincida entre $\textbf{x}$ e $\textbf{y}$ y, sin embargo, coincida entre $\textbf{x}$ y $\textbf{z}$ y entre $\textbf{z}$ e $\textbf{y}$.
 \end{enumerate}
 
+$\qed$
+
 \section{Ejercicio 6}
 
 \begin{formulationBox}
@@ -232,3 +234,5 @@ Es decir, que $w(\textbf{x}\cap\textbf{y})$ es el número de letras con valor $1
 La distancia de Hamming es el número de letras que no tienen en común $\textbf{x}$ e $\textbf{y}$. Dada la naturaleza del alfabeto, esto es equivalente al número de letras con valor $1$ que no tienen en común $\textbf{x}$ e $\textbf{y}$.
 
 Por tanto, podemos calcular a distancia de Hamming como el número de letras con valor $1$ que hay en total entre $\textbf{x}$ e $\textbf{y}$ (es decir, $w(\textbf{x}) + w(\textbf{y})$), descontando los que tienen en común dichas palabras (hay $w(\textbf{x}\cap\textbf{y})$ letras con valor $1$ en común; y se han contado por duplicado, una vez por cada palabra). Es decir, \[d(\textbf{x}, \textbf{y}) = w(\textbf{x}) + w(\textbf{y}) - 2w(\textbf{x}\cap\textbf{y}).\]
+
+$\qed$
