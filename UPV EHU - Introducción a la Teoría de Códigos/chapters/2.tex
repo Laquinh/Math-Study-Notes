@@ -296,3 +296,15 @@ Notemos ahora que $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d
 Similarmente, si sabemos que son el mismo conjunto, entonces sus cardinalidades deben ser iguales, por lo que el número de palabras incluidas en alguna bola será igual al número de palabras en total en $T_n$, que es precisamente equivalente a alcanzar la cota de Hamming.
 
 $\qed$
+
+\section{Ejercicio 9}
+
+\begin{formulationBox}
+	Demostrar que no existen códigos perfectos de longitud $n$ sobre un alfabeto $A$ con distancia mínima par.
+\end{formulationBox}
+
+Tomamos un código $C\subseteq T_n$ sobre $A$ tal que su distancia mínima $d$ sea par.
+
+Notemos que existen palabras en $T_n$ que están a distancia $\frac{d}{2}$ a la palabra de $C$ más cercana. Esto es fácil de comprobar: si tomamos una palabra $\textbf{c}\in C$ y le cambiamos $\frac{d}{2}$ letras, debemos cambiar otras $\frac{d}{2}$ letras más para llegar a otra palabra $\textbf{c'}\in C$ tal que $\mathrm{d}(\textbf{c}, \textbf{c'})=d$, debido a la desigualdad triangular.
+
+Ahora construimos el conjunto $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor)$. Debido a que $d$ es par, el radio $\lfloor\frac{d-1}{2}\rfloor$ equivaldrá $\lfloor\frac{d-2}{2}+\frac{1}{2}\rfloor = \frac{d}{2}-1$. Es decir, las palabras a distancia $\frac{d}{2}$ no serán incluidas en el conjunto, luego $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor) \neq T_n$ y, por el resultado obtenido en el ejercicio anterior, el código $C$ no será perfecto.
