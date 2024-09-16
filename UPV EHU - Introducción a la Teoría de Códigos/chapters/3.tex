@@ -1,0 +1,27 @@
+\chapter{Códigos Lineales}
+
+\section{Ejercicio 1}
+
+\begin{formulationBox}
+	Sea $C\subseteq \mathbb{F}_q^n$ un código lineal de dimensión $k$ y distancia mínima $d$.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Demostrar que $\sum_{i=0}^{\lfloor\frac{d-1}{2}\rfloor} \binom{n}{i} (q-1)^i \leq q^{n-k}$.
+		\item ¿Existe un código lineal $C \subseteq \mathbb{F}_2^6$ con distancia mínima 3 y al menos 9 elementos? Razona la respuesta.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item La cota de Hamming nos dice que
+	\[|C|\sum_{i=0}^{\lfloor\frac{d-1}{2}\rfloor} \binom{n}{i} (q-1)^i \leq q^n.\]
+	
+	Por otra parte, ya que $C$ es un código lineal, es un subespacio, y por tanto se verifica que
+	\[|C| = q^k.\]
+	
+	Sustituyendo en la inecuación, y dividiendo en ambos lados de la inecuación entre $q^k$, obtenemos
+	\[\sum_{i=0}^{\lfloor\frac{d-1}{2}\rfloor} \binom{n}{i} (q-1)^i \leq q^{n-k}.\]
+	
+	\item Sustituyendo los valores en la inecuación:
+	\[\sum_{i=0}^{\lfloor\frac{3-1}{2}\rfloor} \binom{6}{i} (2-1)^i \leq 2^{6-k} \implies 1 + 6 \leq 2^{6-k} \implies 7 \leq \frac{64}{2^k}.\]
+	Hemos obtenido que $k \leq 3$. El número de elementos de $C$ es $|C| = q^k$, que es como mucho $2^3 = 8$, luego no existe un código lineal de al menos 9 elementos con dichas características.
+\end{enumerate}
