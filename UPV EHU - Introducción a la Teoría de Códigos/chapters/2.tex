@@ -308,3 +308,40 @@ Tomamos un código $C\subseteq T_n$ sobre $A$ tal que su distancia mínima $d$ s
 Notemos que existen palabras en $T_n$ que están a distancia $\frac{d}{2}$ a la palabra de $C$ más cercana. Esto es fácil de comprobar: si tomamos una palabra $\textbf{c}\in C$ y le cambiamos $\frac{d}{2}$ letras, debemos cambiar otras $\frac{d}{2}$ letras más para llegar a otra palabra $\textbf{c'}\in C$ tal que $\mathrm{d}(\textbf{c}, \textbf{c'})=d$, debido a la desigualdad triangular.
 
 Ahora construimos el conjunto $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor)$. Debido a que $d$ es par, el radio $\lfloor\frac{d-1}{2}\rfloor$ equivaldrá $\lfloor\frac{d-2}{2}+\frac{1}{2}\rfloor = \frac{d}{2}-1$. Es decir, las palabras a distancia $\frac{d}{2}$ no serán incluidas en el conjunto, luego $\dot{\bigcup}_{c\in C}\overline{B}(\textbf{c}, \lfloor\frac{d-1}{2}\rfloor) \neq T_n$ y, por el resultado obtenido en el ejercicio anterior, el código $C$ no será perfecto.
+
+\section{Ejercicio 10}
+
+\begin{formulationBox}
+	Sea $A$ un alfabeto, $T_n = \{a_1\hdots a_n\mid a_i\in A, i\in\{1,2,\hdots,n\}\}$ y $C\subseteq T_n$ un código de bloque de longitud $n$ con distancia mínima $d$ sobre el alfabeto $A$.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Demostrar que si $g:A\rightarrow A$ es una aplicación biyectiva y $\psi_{g,i} : T_n\rightarrow T_n$ está definida por $\psi_{g, i}(a_1\hdots a_n) = a_1\hdots a_{i-1}g(a_i)a_{i+1}\hdots a_n$, entonces $\psi_{g,i}(C)$ es un código equivalente a $C$ con la misma distancia mínima que $C$.
+		\item Sea $1 \leq i < j \leq n$. Si $\phi_{i,j}:T_n\rightarrow T_n$ es la aplicación definida por $\phi_{i,j}(a_i\hdots a_n) = (a_1\hdots a_{i-1}a_ja_{i+1}\hdots a_{j-1}a_ia_{j+1}\hdots a_n)$. Probar que $\phi_{i,j}(C)$ es un código equivalente a $C$ con la misma distancia mínima que $C$.
+		\item Demostrar que si $C'\subseteq T_n$ es un código equivalente a $C$, entonces la distancia mínima de $C'$, denotada por $d(C')$, coincide con la distancia mínima de $C$.
+	\end{enumerate}
+\end{formulationBox}
+
+Recordemos la definición de la distancia de Hamming:
+\[d(\textbf{x}, \textbf{y}) = |\{k \in \{1,\hdots,n\} \mid x_k \neq y_k\}|\]
+
+\begin{enumerate}[label=\alph*)]
+	\item Basta con demostrar que, para cualesquier $\textbf{x}, \textbf{y} \in C$, se cumple $d(\textbf{x}, \textbf{y}) = d(\psi_{g, i}(\textbf{x}), \psi_{g, i}(\textbf{y}))$.
+	
+	Notemos que, si $x_i = y_i$, entonces $g(x_i) = g(y_i)$. Similarmente, si $x_i\neq y_i$, entonces $g(x_i) \neq g(y_i)$, ya que $g$ es biyectiva. Es inmediato según la definición de distancia que la igualdad se cumple.
+	
+	Como todas las distancias entre pares de palabras son iguales en ambos códigos, la distancia mínima de cada uno debe ser la misma.
+	
+	\item Basta con demostrar que, para cualesquier $\textbf{x}, \textbf{y} \in C$, se cumple $d(\textbf{x}, \textbf{y}) = d(\phi_{i,j}(\textbf{x}), \phi_{i,j}(\textbf{y}))$.
+	
+	Notemos que, si $x_i = y_i$, entonces $\phi_{i,j}(\textbf{x})_j = \phi_{i,j}(\textbf{y})_j$. Similarmente, si $x_i \neq y_i$, entonces $\phi_{i,j}(\textbf{x})_j \neq \phi_{i,j}(\textbf{y})_j$. Es inmediato que esto no afecta a la definición de la distancia: si antes de aplicar $\phi_{i,j}$ había una desigualdad con $k = i$, después de aplicar la función la desigualdad ocurrirá con $k = j$; y, si antes había una igualdad con $k = i$, después ocurrirá la igualdad con $k = i$. En cualquier caso, como la distancia no tiene en cuenta estos índices, sino únicamente la cantidad de los mismos, la distancia no variará.
+	
+	\item Si $C'$ es equivalente a $C$, entonces existe una aplicación $h$ mediante la cual la imagen de $C$ será $C'$, que es la composición de un número finito de aplicaciones de tipo $\phi_{i,j}$ y $\psi_{g, i}$ .
+	
+	Al realizar cada una de las operaciones en esta composición, estaremos generando códigos cuya distancia mínima es la misma que la del código anterior.
+	
+	Al terminar todas las operaciones tomando como entrada inicial $C$, habremos obtenido el código $C'$ por la definición de $h$; y, como la igualdad es transitiva, deducimos que la distancia mínima de $C'$ es la misma que la de $C$.
+\end{enumerate}
+
+$\qed$
+
+
