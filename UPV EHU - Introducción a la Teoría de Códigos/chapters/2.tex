@@ -133,7 +133,7 @@ Al contrario de lo que insinúa el enunciado, el código EAN no siempre es capaz
 	
 	Es fácil ver que la dimensión del código es $n-1$, pues la letra de paridad es linealmente dependiente de las demás.
 	
-	Intentando resolver el problema, escribí un código en el lenguaje de programación Python, en un fichero llamado \texttt{counter.py} (véase el apéndice A). Este \textit{script} calcula por fuerza bruta todos los $a_i$ para cualesquiera (pero no muy grandes) valores de $q$ y $n$. Con ayuda de la OEIS \cite{OEIS:A109499},
+	Intentando resolver el problema, escribí un código en el lenguaje de programación Python, en un fichero llamado \texttt{counter.py} (véase el apéndice A). Este \textit{script} calcula por fuerza bruta todos los $a_i$ para cualesquier (pero no muy grandes) valores de $q$ y $n$. Con ayuda de la OEIS \cite{OEIS:A109499},
 	
 	Para facilitar la visualización de las palabras de $C_2$, vamos a hacer uso de la Teoría de Grafos. Vamos a comenzar estudiando las palabras con peso igual a $n$ (es decir, que no contengan ningún $0$).
 	
@@ -270,7 +270,7 @@ $\qed$
 	
 	Ahora la tarea se reduce a hallar una expresión para $|S(\textbf{x}, i)|$.
 	
-	Notemos que, si modificamos cualesquiera $i$ letras de $\textbf{x}$, podemos llegar a cualquier palabra en la esfera. Y, por definición de \textit{combinación}, tenemos exactamente $\binom{n}{i}$ posibles combinaciones de posiciones a modificar.
+	Notemos que, si modificamos cualesquier $i$ letras de $\textbf{x}$, podemos llegar a cualquier palabra en la esfera. Y, por definición de \textit{combinación}, tenemos exactamente $\binom{n}{i}$ posibles combinaciones de posiciones a modificar.
 	
 	Para cada una de las $i$ posiciones, podemos elegir entre $m-1$ letras diferentes a las que cambiar (ya que no podemos dejar ninguna de las posiciones sin modificar, debemos descontar la letra que viene en $\textbf{x}$). Es decir, que para cada combinación de posiciones tenemos $(m-1)^i$ modificaciones posibles.
 	
