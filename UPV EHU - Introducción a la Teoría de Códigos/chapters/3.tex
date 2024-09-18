@@ -107,3 +107,17 @@ Debemos comprobar si los conjuntos son subespacios vectoriales de $\mathbb{F}_q^
 	
 	Como las operaciones realizadas (\textit{sumar a una fila una combinación lineal de las restantes filas} y \textit{permutación de columnas}) producen matrices que generan códigos equivalentes, el código $C_1$ generado por la matriz $G''$ es equivalente al código $C$.
 \end{enumerate}
+
+\section{Ejercicio 4}
+
+\begin{formulationBox}
+	Sea $C \subseteq \mathbb{F}_q^n$ un código lineal y $\textbf{x}, \textbf{y}\in\mathbb{F}_q^n$. Se define la relación de equivalencia dada por:
+	\[\textbf{x}\sim\textbf{y} \iff \textbf{x}-\textbf{y}\in C.\]
+	Probar $\textbf{x}\sim\textbf{y}$ si y solo si $S(\textbf{x}) = S(\textbf{y})$, donde $S(\textbf{z})$ denota el síndrome de $\textbf{z}\in\mathbb{F}_q^n$.
+\end{formulationBox}
+
+En otras palabras, debemos probar que el método de decodificación basado en los líderes es equivalente al método de decodificación mediante síndromes.
+
+Notemos que $S(\textbf{x}) - S(\textbf{y}) = \textbf{x}H^t - \textbf{y}H^t = (\textbf{x} - \textbf{y})H^t = S(\textbf{x}-\textbf{y})$. Por definición, una palabra $\textbf{z}$ está en $C$ si y solo si $\textbf{z}H^t = 0$. Entonces, $\textbf{x} - \textbf{y} \in C$ si y solo si $S(\textbf{x}-\textbf{y}) = S(\textbf{x}) - S(\textbf{y}) = 0$. Inmediatamente, \[\textbf{x}-\textbf{y} \in C \iff S(\textbf{x}) = S(\textbf{y}).\]
+
+$\qed$
