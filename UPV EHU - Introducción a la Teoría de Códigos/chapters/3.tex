@@ -140,3 +140,38 @@ $\qed$
 \begin{doubtBox}
 	Si creamos una matriz $G_1$ en forma estándar, esta nueva matriz generará un código equivalente pero no igual al generado por $G$, ¿no?
 \end{doubtBox}
+
+\section{Ejercicio 6}
+
+\begin{formulationBox}
+	\begin{enumerate}[label=\alph*)]
+		\item Construir un código de Hamming binario $C$ de longitud 7 y dimensión 4.
+		\item Hallar la decodificación de la palabra: $1001010$, utilizando el método de decodificación basado en los líderes.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item Recordemos que, en un código de Hamming, la longitud está dada por $\frac{q^r-1}{q-1}$ y la dimensión se da por $\frac{q^r-1}{q-1}-r$. Podemos calcular los parámetros deseados resolviendo las ecuaciones $\frac{q^r-1}{q-1} = 7$ y $\frac{q^r-1}{q-1}-r = 4$.
+	
+	Llamemos $l$ a la longitud. Entonces, tenemos $l = 7$ y $l-r = 4$, luego $r = 3$.
+	
+	Ahora, $l = \frac{q^3-1}{q-1} = 7 \implies q^3 - 7q = -6$, con $q \neq 1$. Las única solución natural es $q = 2$.
+	
+	Entonces, tenemos el cuerpo $\mathbb{F}_2^3$, que tiene 7 subespacios de dimensión 1. Construimos una matriz con los vectores de las bases de cada uno de estos subespacios:
+	
+	\[H = \begin{pmatrix}
+		1 & 1 & 0 & 1 & 1 & 0 & 0 \\
+		1 & 1 & 1 & 0 & 0 & 1 & 0 \\
+		1 & 0 & 1 & 1 & 0 & 0 & 1
+	\end{pmatrix}.\]
+	
+	Como $H$ es de la forma $(-B^t|I_{n-k})$, tenemos una matriz generadora para el código que buscamos:
+	\[G = (I_k|B) = \begin{pmatrix}
+		1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+		0 & 1 & 0 & 0 & 1 & 1 & 0 \\
+		0 & 0 & 1 & 0 & 0 & 1 & 1 \\
+		0 & 0 & 0 & 1 & 1 & 0 & 1
+	\end{pmatrix}.\]
+	
+	Con asistencia del \textit{script} de Python \texttt{leader.py}, recogido en el apéndice B, vemos que la palabra $1001010$ se decodifica en $1001010$; es decir, no ocurrió ningún error en la transmisión.
+\end{enumerate}
