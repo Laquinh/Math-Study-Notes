@@ -73,3 +73,37 @@ Debemos comprobar si los conjuntos son subespacios vectoriales de $\mathbb{F}_q^
 		
 		Así, $C_2$ es un $(n, n-1)$-código lineal.
 \end{enumerate}
+
+\section{Ejercicio 3}
+
+\begin{formulationBox}
+	Sea $C \subseteq \mathbb{F}_3^3$ el código ternario con matriz generadora $G = \begin{pmatrix}
+	2 & 1 & 1 \\
+	1 & 2 & 0
+	\end{pmatrix}$.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Demostrar que no tiene ninguna matriz genneradora en forma estándar.
+		\item Localizar un código lineal $C_1$ equivalente a $C$ que sí admita matriz generadora en forma estándar.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item Para que $C$ pueda tener alguna matriz generadora en forma estándar, deben existir dos palabras $\textbf{x}, \textbf{y} \in C$ tales que $x_1 = 1$, $x_2 = 0$, $y_1 = 0$ e $y_2 = 1$.
+	
+	La matriz $G$ nos genera palabras de la forma $(2a + b)(a + 2b)a$, con $a,b \in \mathbb{F}_3$. Busquemos la palabra $\textbf{x}$ como la acabamos de definir. Entonces, necesitamos $2a + b = 1$ y $a + 2b = 0$.
+	
+	Si despejamos $b = 1 - 2a$, sustituimos en la segunda ecuación para obtener
+	\[a + 2(1-2a) = a + 2 - 4a = -3a + 2 = 0,\]
+	luego necesitamos que $3a = 2$; y, teniendo en cuenta que $a\in\mathbb{F}_3$, esto es equivalente a la ecuación $3a\mod3 = 2$. Esta ecuación no tiene solución, ya que $3a$ siempre será congruente con $0 \mod 3$ en $\mathbb{F}_3$.
+	
+	\item Si sumamos la fila 2 a la fila 1, obtenemos una matriz $G' = \begin{pmatrix}
+		0 & 0 & 1 \\
+		1 & 2 & 0
+	\end{pmatrix}$. Ahora, mediante permutaciones de columnas, movemos la columna 3 a la 1, la 1 a la 2 y la 2 a la 3, y obtenemos una matriz en forma estándar: $G'' = \begin{pmatrix}
+	1 & 0 & 0 \\
+	0 & 1 & 2
+	\end{pmatrix}$.
+	
+	Como las operaciones realizadas (\textit{sumar a una fila una combinación lineal de las restantes filas} y \textit{permutación de columnas}) producen matrices que generan códigos equivalentes, el código $C_1$ generado por la matriz $G''$ es equivalente al código $C$.
+\end{enumerate}
