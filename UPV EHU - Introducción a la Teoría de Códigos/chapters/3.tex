@@ -25,3 +25,51 @@
 	\[\sum_{i=0}^{\lfloor\frac{3-1}{2}\rfloor} \binom{6}{i} (2-1)^i \leq 2^{6-k} \implies 1 + 6 \leq 2^{6-k} \implies 7 \leq \frac{64}{2^k}.\]
 	Hemos obtenido que $k \leq 3$. El número de elementos de $C$ es $|C| = q^k$, que es como mucho $2^3 = 8$, luego no existe un código lineal de al menos 9 elementos con dichas características.
 \end{enumerate}
+
+\section{Ejercicio 2}
+
+\begin{formulationBox}
+	Demostrar que los siguientes conjuntos son $(n, k)$-códigos lineales y determinar su dimensión, su distancia mínima y una matriz generadora:
+	
+	\begin{enumerate}[label=\alph*)]
+		\item $C_1 = \{aa\hdots a\mid a\in\mathbb{F}_q\} \subseteq \mathbb{F}_q^n$ (Código de repetición)
+		\item $C_2 = \{x_1\hdots x_n \mid x_i\in\mathbb{F}_q, i=1,\hdots,n,x_n = \sum_{i=1}^{n-1}x_i\}$ (Código de paridad)
+	\end{enumerate}
+\end{formulationBox}
+
+Debemos comprobar si los conjuntos son subespacios vectoriales de $\mathbb{F}_q^n$.
+
+\begin{enumerate}[label=\alph*)]
+	\item Comprobamos si se cumplen las propiedades de los subespacios vectoriales:
+		\begin{enumerate}[label=\arabic*)]
+			\item El código $C_1$ no es vacío porque contiene exactamente una palabra por cada elemento del conjunto no vacío $\mathbb{F}_q$.
+			\item Sean $\textbf{x} = aa\hdots a$ e $\textbf{y} = bb\hdots b$ tales que $a,b \in \mathbb{F}_q$, luego $\textbf{x}, \textbf{y} \in C_1$. Entonces, ya que $a+b, a-b \in \mathbb{F}_q$, se verifica $\textbf{x}+\textbf{y} = (a+b)(a+b)\hdots(a+b) \in C_1$.
+			\item Para cualesquier $\lambda\in\mathbb{F}_q$, $\textbf{x}\in C_1$ con $\textbf{x} = a\hdots a$, se verifica $\lambda\textbf{x} = (\lambda a)\hdots(\lambda a) \in C_1$, ya que $\lambda a \in \mathbb{F}_q$.
+		\end{enumerate}
+		Por tanto, $C_1$ es un subespacio vectorial de $\mathbb{F}_q^n$.
+		
+		Es inmediato que, para cualquier $\textbf{x}\in C_1$, existe $a\in\mathbb{F}_q$ tal que $\textbf{x} = a\cdot 11\hdots1$, luego $\{1\hdots1\}$ es una base de $C_1$ y su dimensión es $k = 1$. Además, una matriz generadora de $C_1$ es $\begin{pmatrix}
+			1 & 1 & \cdots & 1
+		\end{pmatrix}$. Por último, su distancia mínima es $d(C_1) = n$, ya que todas las palabras de este código tienen peso $n$.
+		
+		Así, $C_1$ es un $(n, 1)$-código lineal.
+	
+	\item Comprobamos si se cumplen las propiedades de los subespacios vectoriales:
+		\begin{enumerate}[label=\arabic*)]
+			\item El código $C_2$ trivialmente no es vacío.
+			\item Sean $\textbf{x} = x_1x_2\hdots x_n$ e $\textbf{y} = y_1y_2\hdots y_n$ con $\textbf{x}, \textbf{y} \in C_1$. Entonces, se verifica $\textbf{x}+\textbf{y} = (x_1+y_1)(x_2+y_2)\hdots(x_n+y_n)$. Teniendo en cuenta que $x_n = \sum_{i=1}^{n-1}x_i$ e $y_n = \sum_{i=1}^{n-1}y_i$, obtenemos que $x_n + y_n = \sum_{i=1}^{n-1}(x_i + y_n)$, luego $\textbf{x} + \textbf{y} \in C_2$.
+			\item Para cualesquier $\lambda\in\mathbb{F}_q$, $\textbf{x}\in C_2$ con $\textbf{x} = x_1x_2\hdots x_n$, se verifica $\lambda\textbf{x} = (\lambda x_1)(\lambda x_2)\hdots(\lambda x_n) \in C_1$, ya que $\lambda x_n = \lambda\sum_{i=1}^{n-1}x_i = \sum_{i=1}^{n-1}\lambda x_i = (\lambda\textbf{x})_n$.
+		\end{enumerate}
+		Por tanto, $C_2$ es un subespacio vectorial de $\mathbb{F}_q^n$.
+		
+		Es inmediato que, para cualquier $\textbf{x}\in C_2$, existe $(\alpha_1, \alpha_2, \hdots, \alpha_{n-1})\in\mathbb{F}_q$ tal que
+		\[\textbf{x} = \alpha_1\cdot10\hdots01 + \alpha_2\cdot01\hdots01 + \cdots + \alpha_{n-1}\cdot00\hdots11,\]
+		luego $\{10\hdots01, 01\hdots01, \hdots, 00\hdots11\}$ es un sistema generador de $C_2$, y una base también puesto que es libre. Por tanto, la dimensión de $C_2$ es $k = n-1$, y una matriz generadora de $C_2$ es $\begin{pmatrix}
+			1 & 0 & \cdots & 0 & 1 \\
+			0 & 1 & \cdots & 0 & 1 \\
+			\vdots & \vdots & \ddots & \vdots & \vdots \\
+			0 & 0 & \cdots & 1 & 1
+		\end{pmatrix}$. Por último, su distancia mínima es $d(C_2) = 2$, puesto que el peso mínimo es 2, como se aprecia con facilidad viendo la matriz generadora.
+		
+		Así, $C_2$ es un $(n, n-1)$-código lineal.
+\end{enumerate}
