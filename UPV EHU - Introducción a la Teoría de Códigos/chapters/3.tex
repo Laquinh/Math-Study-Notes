@@ -121,3 +121,22 @@ En otras palabras, debemos probar que el método de decodificación basado en lo
 Notemos que $S(\textbf{x}) - S(\textbf{y}) = \textbf{x}H^t - \textbf{y}H^t = (\textbf{x} - \textbf{y})H^t = S(\textbf{x}-\textbf{y})$. Por definición, una palabra $\textbf{z}$ está en $C$ si y solo si $\textbf{z}H^t = 0$. Entonces, $\textbf{x} - \textbf{y} \in C$ si y solo si $S(\textbf{x}-\textbf{y}) = S(\textbf{x}) - S(\textbf{y}) = 0$. Inmediatamente, \[\textbf{x}-\textbf{y} \in C \iff S(\textbf{x}) = S(\textbf{y}).\]
 
 $\qed$
+
+\section{Ejercicio 5}
+
+\begin{formulationBox}
+	Se considera el código lineal de $\mathbb{F}_3^4$ cuya matriz generadora es: $G = \begin{pmatrix}
+		1 & 1 & 0 & 1 \\
+		1 & 0 & 1 & 2
+	\end{pmatrix}$.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Calcular una matriz de control y su distancia mínima.
+		\item Decodificar la palabra $2121$ empleando el método de los síndromes.
+		\item ¿Tienen todas las palabras de $\mathbb{F}_3^4$ decodificación única? ¿Es un código perfecto? Razona la respuesta.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{doubtBox}
+	Si creamos una matriz $G_1$ en forma estándar, esta nueva matriz generará un código equivalente pero no igual al generado por $G$, ¿no?
+\end{doubtBox}
