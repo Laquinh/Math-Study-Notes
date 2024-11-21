@@ -175,3 +175,39 @@ $\qed$
 	
 	Con asistencia del \textit{script} de Python \texttt{leader.py}, recogido en el apéndice B, vemos que la palabra $1001010$ se decodifica en $1001010$; es decir, no ocurrió ningún error en la transmisión.
 \end{enumerate}
+
+\section{Ejercicio 7}
+
+\begin{formulationBox}
+	Sea $G = \begin{pmatrix}
+		0 & 1 & 1 & 1 & 1 \\
+		1 & 0 & 0 & 1 & 0
+	\end{pmatrix} \in \text{Mat}_{2\times5}(\mathbb{F}_2)$ la matriz generadora de un código lineal $C$.
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Demostrar que $C$ es de dimensión 2 y calcular todas las palabras de $C$.
+		\item Hallar una matriz de control de paridad.
+		\item Buscar líderes de las clases de equivalencia del conjunto cociente $\mathbb{F}_2^5/C$.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item El código $G$ es de dimensión $2$ si y solo si la matriz $G$ es una matriz de dos filas independientes, lo cual es evidente que se cumple.
+	\item Primero hallaremos una matriz $G'$ generadora de un código $C'$ equivalente a $C$, tal que $G'$ esté en forma estándar. Es decir, $G'$ será de la forma $(I_k|B)$.
+	Podemos permutar las filas para obtener
+	$G' = \begin{pmatrix}
+		1 & 0 & 0 & 1 & 0 \\
+		0 & 1 & 1 & 1 & 1
+	\end{pmatrix}$, que es justamente la matriz que buscábamos.
+	
+	La matriz de control de paridad para $C$ será $H = (-B^t|I_{n-k}) = \begin{pmatrix}
+		0 & 1 & 1 & 0 & 0 \\
+		1 & 1 & 0 & 1 & 0 \\
+		0 & 1 & 0 & 0 & 1
+	\end{pmatrix}$.
+	\item \hspace*{1mm}
+	
+	\begin{draftBox}
+		Este ejercicio no está resuelto.
+	\end{draftBox}
+\end{enumerate}
