@@ -175,3 +175,73 @@ $\qed$
 	
 	Con asistencia del \textit{script} de Python \texttt{leader.py}, recogido en el apéndice B, vemos que la palabra $1001010$ se decodifica en $1001010$; es decir, no ocurrió ningún error en la transmisión.
 \end{enumerate}
+
+\section{Ejercicio 9}
+
+\begin{formulationBox}
+	Sea $C$ un código de bloque sobre $\mathbb{F}_q$ de longitud $n$. Se llama \textbf{polinomio enumerador de pesos} de $C$ al polinomio
+	\[W_C(x, y) = \sum_{i=0}^{n} a_i x^i y^{n-i}\textrm{, siendo }a_i = |\{c\in C | w(c) = i\}|.\]
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Demostrar que si $C$ es un código lineal, entonces el número de palabras de $C$ que se encuentran a distancia $i$ de $c \in C$ es $a_i$.
+		\item Si $C \in \mathbb{F}_2^5$ es el código lineal cuya matriz generadora viene dada por $G = \begin{pmatrix}
+			1 & 1 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 1 & 0 \\
+			1 & 1 & 1 & 1 & 1
+		\end{pmatrix}$, calcular su polinomio enumerador de pesos y el de su código dual.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item Recordemos que sean $\textbf{x}, \textbf{y} \in \mathbb{F}_q^n$, se cumple $d(\textbf{x}, \textbf{y}) = w(\textbf{x}-\textbf{y})$.
+	
+	%Por consiguiente, la expresión $a_i = |\{c\in C | w(c) = i\}|$ hace referencia al número de palabras de $C$ que se encuentran a distancia $i$ de $\textbf{0}\in C$.
+	
+	%Tomamos ahora $c_1, c_2 \in C$ tal que $w(c_1) = i$ y $w(c_2) = k$. Entonces, 
+	
+	%Existen $a_i$ palabras tales que $w(c) = i$. Para cada una de estas, podemos hacer $c - c_2$, que está en $C$ y que está a distancia $w(c - c_2)$ de $c_2$.
+	
+	Por definición, existen exactamente $a_i$ palabras de $C$ cuyo peso es $i$. Llamamos $A_i$ al conjunto $\{c\in C | w(c) = i\}$.
+	
+	Tomamos una palabra $c \in C$. Para que una palabra $c' \in C$ esté a distancia $i$ de $c$, debe cumplirse $w(c - c') = i$, luego $c - c' \in A_i$. Así, los valores posibles para $c'$ son las palabras $c - c_k$ tales que $c_k \in A_i$, ya que $c - (c - c_k) = c_k$.
+	
+	Por tanto, existen exactamente $a_i$ palabras que se encuentran a distancia $i$ de $c \in C$.
+	
+	$\qed$
+	
+	%y las palabras $c - c_k$ con $k \in [1, a_i]\cap\naturals$. Todas estas palabras $c - c_k$ están a distancia $i$ de $c$, ya que $d(c, c - c_k) = w(c - (c - c_k)) = w(c_k) = i$.
+	
+	\item Expresamos $C$ como el conjunto de sus palabras:
+	\[C = \{00000, 11100, 00110, 11010, 11111, 00011, 11001, 00101\}.\]
+	Así, obtenemos $a_0 = 1, a_1 = 0, a_2 = 3, a_3 = 3, a_4 = 0, a_5 = 1$, y su polinomio enumerador de pesos será
+	\[W_C(x, y) = y^5 + 3x^2y^3 + 3x^3y^2 + x^5.\]
+	
+	Calculemos ahora el código dual $C^\perp$. Sabemos que $\textbf{x}\in C^\perp$ si y solo si $\textbf{x}G^t = 0$. Así, tenemos la siguiente ecuación:
+	\begin{align*}
+		\begin{pmatrix}
+			x_1 & x_2 & x_3 & x_4 & x_5
+		\end{pmatrix}\begin{pmatrix}
+			1 & 0 & 1 \\
+			1 & 0 & 1 \\
+			1 & 1 & 1 \\
+			0 & 1 & 1 \\
+			0 & 0 & 1
+		\end{pmatrix} &= \\
+		\begin{pmatrix}
+			x_1 + x_2 + x_3 & x_3 + x_4 & x_1 + x_2 + x_3 + x_4 + x_5
+		\end{pmatrix} &= \begin{pmatrix}
+			0 & 0 & 0
+		\end{pmatrix},
+	\end{align*}
+	de donde obtenemos las restricciones $x_3 = -x_4$, $x_3 = -x_1 - x_2$ y $x_5 = x_3$. Dicho de otra forma, las palabras de $C^\perp$ son de la forma $\begin{pmatrix}
+		\alpha & \beta & -\alpha-\beta & \alpha+\beta & -\alpha-\beta
+	\end{pmatrix}$.
+
+	Por tanto, podemos expresar $C^\perp$ como el conjunto de sus palabras de la siguiente forma:
+	
+	\[C^\perp = \{00000, 10111, 01111, 11000\}.\]
+	
+	Así, obtenemos $a_0 = 1, a_1 = 0, a_2 = 1, a_3 = 0, a_4 = 2, a_5 = 0$, y su polinomio enumerador de pesos será
+	\[W_C(x, y) = y^5 + x^2y^3 + 2x^4y.\]
+	
+\end{enumerate}
