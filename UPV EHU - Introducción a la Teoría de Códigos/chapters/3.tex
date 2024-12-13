@@ -264,7 +264,7 @@ $\qed$
 	\item Si se anula la variable $y$ y se le da valor $1$ a la variable $x$, obtenemos $W_C(1,0) = a_n$. Con $q=2$, existe una única palabra posible con peso igual a $n$, la palabra $11\dots11$, por lo que $a_n$ solo puede tener $0$ o $1$ como valor.
 	\item Recordemos que, en un código lineal, sean $\textbf{x}, \textbf{y} \in C$, se cumple $\textbf{x}-\textbf{y} \in C$.
 	
-	Tomamos $c \in C$. Si $11\dots11 \in C$, entonces obtenemos $11\dots11 - c = c'$ tal que $w(c') = n - w(c)$. Por tanto, $a_i = a_{n-i}$ para todo $i$ en su dominio, y $W_C(1,0) = 1 \implies W_C(x,y) = W_C(y,x)$.
+	Tomamos $c \in C$. Si $11\dots11 \in C$, entonces podemos calcular $c' = 11\dots11 - c$, que cumple $w(c') = n - w(c)$. Por tanto, $a_i = a_{n-i}$ para todo $i$ en su dominio, y $W_C(1,0) = 1 \implies W_C(x,y) = W_C(y,x)$.
 	
 	Por otra parte, en caso de que $W_C(x,y) = W_C(y,x)$, evidentemente se cumplirá $W_C(0,1) = W_C(1, 0)$. Ya hemos demostrado que $W_C(0,1) = 1$, por lo que $W_C(x,y) = W_C(y,x) \implies W_C(1,0) = 1$.
 \end{enumerate}
