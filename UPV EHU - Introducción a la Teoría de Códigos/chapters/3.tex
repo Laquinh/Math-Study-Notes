@@ -245,3 +245,26 @@ $\qed$
 	\[W_C(x, y) = y^5 + x^2y^3 + 2x^4y.\]
 	
 \end{enumerate}
+
+\section{Ejercicio 10}
+
+\begin{formulationBox}
+	Sea $C\subseteq \mathbb{F}_q^n$ un $(n,k)$-código lineal y $W_C(x,y)$ su polinomio enumerador de pesos. Demostrar que:
+	\begin{enumerate}[label=\alph*)]
+		\item $W_C(1,1) = q^k$.
+		\item $W_C(0,1) = 1$.
+		\item Si $q = 2$, entonces $W_C(1,0)\in\{0, 1\}$.
+		\item Si $q = 2$, entonces $W_C(x,y) = W_C(y, x)$ si y solo si $W_C(1,0) = 1$.
+	\end{enumerate}
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item Si damos valor $1$ tanto a la variable $x$ como a la $y$, obtendremos la suma de todos los $a_i$ con $i \in [0, n]\cap\naturals$.\footnote{Entendiendo que $0 \in \naturals$.} Está claro que todas las palabras tienen un peso en dicho intervalo, luego la suma dará como resultado el número de palabras en el código $C$ que, al tratarse de un código lineal, será igual a $q^k$.
+	\item Si se anula la variable $x$, se anularán todos los sumandos menos $a_0y^n$. Si, además, damos valor $1$ a la variable $y$, obtenemos $W_C(0,1) = a_0$. Trivialmente, siempre existe una única palabra con peso igual a $0$, luego $a_0 = 0$.
+	\item Si se anula la variable $y$ y se le da valor $1$ a la variable $x$, obtenemos $W_C(1,0) = a_n$. Con $q=2$, existe una única palabra posible con peso igual a $n$, la palabra $11\dots11$, por lo que $a_n$ solo puede tener $0$ o $1$ como valor.
+	\item Recordemos que, en un código lineal, sean $\textbf{x}, \textbf{y} \in C$, se cumple $\textbf{x}-\textbf{y} \in C$.
+	
+	Tomamos $c \in C$. Si $11\dots11 \in C$, entonces obtenemos $11\dots11 - c = c'$ tal que $w(c') = n - w(c)$. Por tanto, $a_i = a_{n-i}$ para todo $i$ en su dominio, y $W_C(1,0) = 1 \implies W_C(x,y) = W_C(y,x)$.
+	
+	Por otra parte, en caso de que $W_C(x,y) = W_C(y,x)$, evidentemente se cumplirá $W_C(0,1) = W_C(1, 0)$. Ya hemos demostrado que $W_C(0,1) = 1$, por lo que $W_C(x,y) = W_C(y,x) \implies W_C(1,0) = 1$.
+\end{enumerate}
