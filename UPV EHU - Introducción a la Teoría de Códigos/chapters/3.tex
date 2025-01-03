@@ -337,3 +337,17 @@ Notemos que podríamos haber enumerado unas propiedades de manera similar para e
 \end{itemize}
 
 Con esto, adaptar la demostración es una tarea trivial.
+
+\section{Ejercicio 13}
+
+\begin{formulationBox}
+	Sea $C \subseteq \mathbb{F}_q^n$ un $(n, k)$-código lineal y $C^\perp$ su código dual. Se dice que $C$ es autoortogonal si $C \subseteq C^\perp$ y $C$ es autodual si $C = C^\perp$. Demostrar que $C$ es autodual si y solo si $C$ es autoortogonal y $\dim C = \frac{n}{2}$.
+\end{formulationBox}
+
+Recordemos que, dado un $(n, k)$-código lineal $C$, la dimensión de su código dual es $\dim C^\perp = n-k$.
+
+Si $C$ es autodual, $C$ y $C^\perp$ tienen los mismos elementos, luego los elementos de $C$ pertenecen también a $C^\perp$, por lo que $C$ también es autoortogonal. Además, si $C$ y $C^\perp$ tienen exactamente los mismos elementos, su dimensión debe ser la misma, luego se verifica $k = n-k$, y de aquí se obtiene $k = \dim C = \frac{n}{2}$.
+
+Similarmente, si $\dim C = \frac{n}{2}$, entonces $\dim C^\perp = n - \frac{n}{2} = \frac{n}{2} = k = \dim C$, luego $C$ y $C^\perp$ tienen la misma cantidad de elementos. Además, si $C$ es autoortogonal, entonces todos los elementos de $C$ pertenecen también a $C^\perp$; y, como ambos códigos tienen la misma cantidad de elementos, $C^\perp$ únicamente contrendrá los elementos de $C$, por lo que $C$ será autodual.
+
+$\qed$
