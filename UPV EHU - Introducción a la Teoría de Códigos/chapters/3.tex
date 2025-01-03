@@ -307,3 +307,33 @@ Siendo $C$ un código lineal, debe poder construirse mediante una base de palabr
 \end{itemize}
 
 $\qed$
+
+\section{Ejercicio 12}
+
+\begin{formulationBox}
+	Sea $C \subseteq \mathbb{F}_2^n$ un código lineal. Demostrar que se verifica una de las dos afirmaciones siguientes:
+	\begin{enumerate}[label=\alph*)]
+		\item Todas las palabras empiezan por 0.
+		\item La mitad de las palabras empiezan por 0 y la otra mitad por 1.
+	\end{enumerate}
+\end{formulationBox}
+
+La demostración es casi idéntica que la del ejercicio 11. En este caso, en lugar de las propiedades de la paridad, debemos tener en cuenta las cuatro siguientes:
+
+\begin{itemize}
+	\item Si $\textbf{x}$ empieza por 0 y $\textbf{y}$ empieza por 0, entonces $\textbf{x}+\textbf{y}$ empieza por 0.
+	\item Si $\textbf{x}$ empieza por 0 y $\textbf{y}$ empieza por 1, entonces $\textbf{x}+\textbf{y}$ empieza por 1.
+	\item Si $\textbf{x}$ empieza por 1 y $\textbf{y}$ empieza por 0, entonces $\textbf{x}+\textbf{y}$ empieza por 1.
+	\item Si $\textbf{x}$ empieza por 1 y $\textbf{y}$ empieza por 1, entonces $\textbf{x}+\textbf{y}$ empieza por 0.
+\end{itemize}
+
+Notemos que podríamos haber enumerado unas propiedades de manera similar para el ejercicio 11:
+
+\begin{itemize}
+	\item Si $\textbf{x}$ es de peso par y $\textbf{y}$ es de peso par, entonces $\textbf{x}+\textbf{y}$ es de peso par.
+	\item Si $\textbf{x}$ es de peso par y $\textbf{y}$ es de peso impar, entonces $\textbf{x}+\textbf{y}$ es de peso impar.
+	\item Si $\textbf{x}$ es de peso impar y $\textbf{y}$ es de peso par, entonces $\textbf{x}+\textbf{y}$ es de peso impar.
+	\item Si $\textbf{x}$ es de peso impar y $\textbf{y}$ es de peso impar, entonces $\textbf{x}+\textbf{y}$ es de peso par.
+\end{itemize}
+
+Con esto, adaptar la demostración es una tarea trivial.
