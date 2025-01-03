@@ -351,3 +351,28 @@ Si $C$ es autodual, $C$ y $C^\perp$ tienen los mismos elementos, luego los eleme
 Similarmente, si $\dim C = \frac{n}{2}$, entonces $\dim C^\perp = n - \frac{n}{2} = \frac{n}{2} = k = \dim C$, luego $C$ y $C^\perp$ tienen la misma cantidad de elementos. Además, si $C$ es autoortogonal, entonces todos los elementos de $C$ pertenecen también a $C^\perp$; y, como ambos códigos tienen la misma cantidad de elementos, $C^\perp$ únicamente contrendrá los elementos de $C$, por lo que $C$ será autodual.
 
 $\qed$
+
+\section{Ejercicio 14}
+
+\begin{formulationBox}
+	Sea $C_i^\perp$ el código dual del código lineal $C_i, i=1, 2.$ Demostrar que:
+	\begin{enumerate}[label=\alph*)]
+		\item $(C_i^\perp)^\perp = C_i$.
+		\item $(C_1 + C_2)^\perp = C_1^\perp \cap C_2^\perp$.
+	\end{enumerate}
+\end{formulationBox}
+
+Recordemos la definición de código dual:
+\[C^\perp = \{\textbf{x} \in \mathbb{F}_q^n | \textbf{x}\cdot\textbf{y} = 0, \forall\textbf{y} \in C\}.\]
+
+\begin{enumerate}[label=\alph*)]
+	\item Por definición, $C_i^\perp$ contiene las palabras cuyo producto escalar con todos los elementos de $C_i$ es igual a 0.
+	
+	Similarmente, $(C_i^\perp)^\perp$ contiene las palabras cuyo producto escalar con todos los elementos de $C_i^\perp$ es igual a 0. Por cómo está construido $C_i^\perp$, y ya que el producto escalar es conmutativo, estas palabras son precisamente las de $C_i$, luego $(C_i^\perp)^\perp$ tiene las mismas palabras que $C_i$ y, por tanto, $(C_i^\perp)^\perp = C_i$.
+	
+	\item Por definición, $(C_1 + C_2)^\perp$ contiene las palabras cuyo producto escalar con todos los elementos de $C_1 + C_2$ es igual a 0. El código $C_1 + C_2$ contiene palabras tanto de $C_1$ como de $C_2$. Por tanto, $(C_1 + C_2)^\perp$ contendrá palabras cuyo producto escalar con todos los elementos de $C_1$ y de $C_2$ sea igual a 0. Por tanto, estas palabras deberán estar incluidas tanto en $C_1^\perp$ como en $C_2^\perp$: dicho de otra manera, estarán incluidas en $C_1^\perp \cap C_2^\perp$.
+	
+	Similarmente, si una palabra está incluida tanto en $C_1^\perp$ como en $C_2^\perp$, significa que su producto escalar con cualquier palabra de $C_1 + C_2$ será 0, luego también estará incluida en $(C_1 + C_2)^\perp$.
+\end{enumerate}
+
+$\qed$
