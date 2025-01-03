@@ -376,3 +376,36 @@ Recordemos la definición de código dual:
 \end{enumerate}
 
 $\qed$
+
+\section{Ejercicio 15}
+
+\begin{formulationBox}
+	Para $i = 1, 2$, consideraremos $C_i \in \mathbb{F}_2^{n_i}$ código lineal de dimensión $k$, distancia mínima $d_i$ y matriz generadora $G_i$.
+	\begin{enumerate}[label=\alph*)]
+		\item Demostrar que el código lineal con matriz generadora $\begin{pmatrix}
+			G_1 & 0\\
+			0 & G_2
+		\end{pmatrix}$ tiene longitud $n_1 + n_2$, dimensión $2k$ y distancia mínima $d = \min\{d_1, d_2\}$.
+		\item Demostrar que el código lineal con matriz generadora $\begin{pmatrix}
+			G_1 & G_2
+		\end{pmatrix}$ tiene longitud $n_1 + n_2$, dimensión $k$ y distancia mínima $d \geq d_1 + d_2$.
+	\end{enumerate}
+\end{formulationBox}
+
+Llamemos $C_{a)}$ al código del que se habla en el apartado a) y $C_{b)}$ al código del que se habla en el apartado b).
+
+\begin{enumerate}[label=\alph*)]
+	\item La longitud de un código es igual al número de columnas de su matriz generadora. La matriz generadora de $C_{a)}$ tiene una columna por cada una de $G_1$, seguidas de una columna por cada una de $G_2$, luego en total habrá $n_1 + n_2$ columnas.
+	
+	La dimensión de un código lineal está dada por el número de palabras en la base. La base de $C_{a)}$ está formada de $k$ palabras provenientes de la base de $C_1$ (con terminación $00\hdots00$) y $k$ palabras provenientes de la base de $C_2$ (con prefijo $00\hdots00$), luego en total tiene $2k$ palabras.
+	
+	La distancia mínima de un código lineal es igual a su peso mínimo. El hecho de que las palabras de la base tengan una terminación o un prefijo de letras nulas significa que tenemos en $C_{a)}$ palabras con un peso tan bajo como las de $C_1$ o $C_2$. Así, la palabra de peso mínimo en $C_{a)}$ tendrá el mismo peso que la palabra de $C_1$ o $C_2$ que tenga que menor peso.
+	
+	\item La longitud sigue el mismo razonamiento que en el apartado a).
+	
+	En este caso, la base de $C_{b)}$ está formada de $k$ palabras en total, resultantes de concatenar las palabras de la base de $C_1$ con las de la base de $C_2$.
+	
+	Recordemos que la distancia mínima de un código lineal equivale a su peso mínimo. Ya que las palabras de $C_{b)}$ son concatenación de palabras de $C_1$ y $C_2$, el peso de una palabra de $C_{b)}$ será igual a la suma del peso de una palabra de $C_1$ y otra de $C_2$. Por tanto, el peso mínimo de $C_{b)}$ debe ser como mínimo igual a la suma del peso mínimo de $C_1$ y de $C_2$.
+\end{enumerate}
+
+$\qed$
