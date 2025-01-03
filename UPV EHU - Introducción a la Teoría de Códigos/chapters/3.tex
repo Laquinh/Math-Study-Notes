@@ -409,3 +409,22 @@ Llamemos $C_{a)}$ al código del que se habla en el apartado a) y $C_{b)}$ al c�
 \end{enumerate}
 
 $\qed$
+
+\section{Ejercicio 16}
+
+\begin{formulationBox}
+	Demostrar que si un código lineal admite una matriz generadora en forma estándar, entonces esta es única.
+\end{formulationBox}
+
+Supongamos que existe un código lineal $C$ que puede ser generado por dos matrices en forma estándar diferentes: $G_1 = (I_k|B_1)$ y $G_2 = (I_k|B_2)$. Entonces, el código generado por $G_1$ debe incluir las palabras de las filas que conforman $G_2$, pues son en realidad el mismo código.
+
+Llamemos $f$ a la fila (o una de las filas) en la que se distinguen $G_1$ y $G_2$. En dicha fila, $G_1$ tiene la palabra
+\[\textbf{x}_1 = \underbrace{0\hdots0}_\text{$f-1$}1\underbrace{0\hdots0}_\text{$k-f$}a_1b_1c_1\hdots,\]
+mientras que $G_2$ tiene la palabra
+\[\textbf{x}_2 = \underbrace{0\hdots0}_\text{$f-1$}1\underbrace{0\hdots0}_\text{$k-f$}a_2b_2c_2\hdots.\]
+
+Si intentamos escribir $\textbf{x}_2$ como combinación lineal de las palabras de $G_1$, veremos que solo es posible en caso de que $\textbf{x}_1 = \textbf{x}_2$, lo que significaría que $G_1$ y $G_2$ son en realidad la misma matriz, luego llegamos a una contradicción.
+
+Por tanto, un código lineal no puede ser generado por dos matrices en forma estándar diferentes.
+
+$\qed$
