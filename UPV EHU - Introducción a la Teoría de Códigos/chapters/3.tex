@@ -268,3 +268,42 @@ $\qed$
 	
 	Por otra parte, en caso de que $W_C(x,y) = W_C(y,x)$, evidentemente se cumplirá $W_C(0,1) = W_C(1, 0)$. Ya hemos demostrado que $W_C(0,1) = 1$, por lo que $W_C(x,y) = W_C(y,x) \implies W_C(1,0) = 1$.
 \end{enumerate}
+
+\section{Ejercicio 11}
+
+\begin{formulationBox}
+	Sea $C \subseteq \mathbb{F}_2^n$ un código lineal. Demostrar que se verifica una de las dos afirmaciones siguientes:
+	\begin{enumerate}[label=\alph*)]
+		\item Todas las palabras son de peso par.
+		\item La mitad de las palabras son de peso par y la otra mitad de peso impar.
+	\end{enumerate}
+\end{formulationBox}
+
+%Existen códigos lineales cuyas palabras son todas de peso par: por ejemplo, el código trivial $C = \{\textbf{0}\}$. Por tanto, debemos demostrar que, en caso de la primera afirmación no se cumpla, entonces la segunda debe ser verdadera.
+
+Llamamos $P(n)$ a la proposición que dice que en un código de dimensión $n$ se verifica alguna de las dos afirmaciones.
+
+Notemos que, con $q = 2$ (como es el caso), el peso de una palabra equivale a la suma de sus letras.
+
+Siendo $C$ un código lineal, debe poder construirse mediante una base de palabras linealmente independientes. Esto nos permite demostrar $P(n)\forall n\in\naturals$ mediante inducción: demostraremos que, dado un código lineal cualquiera, añadiendo una nueva palabra linealmente independiente a la base construiremos un nuevo código lineal que cumpla alguna de las dos afirmaciones.
+
+\begin{itemize}
+	\item \textbf{Base}: cuando el número de palabras en la base es igual a $0$, la base $\{\}$ genera el código trivial $C_0 = \{\textbf{0}\}$, que cumple la primera afirmación. Por tanto, $P(0)$ es verdadera.
+	\item \textbf{Paso inductivo}: demostraremos que, si $P(k)$ es verdadera para algún $k\in\naturals$, entonces $P(k+1)$ es verdadera también.
+	
+	Sea $C_k$ un código de dimensión $k$. Si añadimos a su base una nueva palabra linealmente independiente, $\textbf{x}_{k+1}$, por la definición de código lineal, el nuevo código $C_{k+1}$ contendrá todas las palabras $\textbf{x}_{k+1} + \textbf{y}$, con $\textbf{y} \in C_k$. existen los dos siguientes supuestos:
+	
+	\begin{enumerate}
+		\item Si $\textbf{x}_{k+1}$ es par, entonces la paridad de $w(\textbf{x}_{k+1} + \textbf{y})$ será la misma que la de $w(\textbf{y})$ para todos los elementos $\textbf{y} \in C_k$, luego $C_{k+1}$ tendrá el doble de palabras pares (así como impares) que $C_k$.
+		
+		Como consecuencia, la proporción de palabras pares en $C_{k+1}$ será la misma que la de $C_k$: y, como $P(k)$ es verdadera, significa que en el caso de $C_{k+1}$ también serán pares todas o exactamente la mitad de las palabras, luego se verificará $P(k+1)$.
+		
+		\item Si $\textbf{x}_{k+1}$ es impar, entonces la paridad de $w(\textbf{x}_{k+1} + \textbf{y})$ será la opuesta que la de $w(\textbf{y})$ para todos los elementos $\textbf{y} \in C_k$.
+		
+		Así, si las $2^k$ palabras en $C_k$ tienen peso par, se introducen $2^k$ palabras con peso impar en $C_{k+1}$, obteniendo un código de $2^{k+1}$ palabras de las cuales la mitad son de peso par y la otra mitad de peso impar.
+		
+		Similarmente, si $C_k$ tiene $2^{k-1}$ palabras de peso par y $2^{k-1}$ palabras de peso impar, se introducen la misma cantidad de palabras de peso par e impar en $C_{k+1}$, dando lugar a un código de $2^k$ palabras pares y $2^k$ palabras impares, verificando así $P(k+1)$.
+	\end{enumerate}
+\end{itemize}
+
+$\qed$
