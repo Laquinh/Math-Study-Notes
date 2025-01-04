@@ -74,3 +74,36 @@ Finally, if a word $w$ contains one error, that means there is exactly one lette
 \subsection{Exercise 4}
 
 Check UPV/EHU Coding Theory notes.
+
+\subsection{Exercise 5}
+
+\begin{formulationBox}
+	Let $d_i$ be a metric on the set $\mathcal{X}_i$. Define for $(x_1, y_1), (x_2, y_2) \in \mathcal{X}_1\times\mathcal{X}_2$: $d((x_1, x_2), (y_1, y_2)) = d_1(x_1, y_1) + d_2(x_2, y_2)$. Show that $d$ is a metric on $\mathcal{X}_1\times\mathcal{X}_2$.
+\end{formulationBox}
+
+I believe this exercise's formulation contains an errata, since $y_1$ is first treated as an element of $\mathcal{X}_2$, but later as an element of $\mathcal{X}_1$ as well. I believe this is the correct formulation:
+
+\textit{Define for $(x_1, x_2), (y_1, y_2) \in \mathcal{X}_1\times\mathcal{X}_2$: $d((x_1, x_2), (y_1, y_2)) = d_1(x_1, y_1) + d_2(x_2, y_2)$.}
+
+Let's now prove that the properties of a metric are valid for $d$:
+
+\begin{enumerate}[label=\alph*)]
+	\item $d((x_1, x_2), (y_1, y_2))\geq0$, and equality holds if and only if $(x_1, x_2) = (y_1, y_2)$: $d$ is the sum of two distances, which by definition are non-negative. $d$ will be $0$ if and only if $d_1$ and $d_2$ are $0$ too, which by definition is equivalent to $x_1 = y_1$ and $x_2 = y_2$; that is, $(x_1, x_2) = (y_1, y_2)$.
+	
+	\item $d((x_1, x_2), (y_1, y_2)) = d((y_1, y_2), (x_1, x_2))$ (symmetry):
+	\begin{align*}
+		d((x_1, x_2), (y_1, y_2)) &= d_1(x_1, y_1) + d_2(x_2, y_2) \\
+		&= d_1(y_1, x_1) + d_2(y_2, x_2) \\
+		&= d((y_1, y_2), (x_1, x_2)).
+	\end{align*}
+
+	\item $d((x_1, x_2), (z_1, z_2)) \leq d((x_1, x_2), (y_1, y_2)) + d((y_1, y_2), (z_1, z_2))$ (triangle inequality):
+	\begin{align*}
+		d((x_1, x_2), (z_1, z_2)) &= d_1(x_1, z_1) + d_2(x_2, z_2) \\
+		&\leq d_1(x_1, y_1) + d_1(y_1, z_1) + d_2(x_2, y_2) + d_2(y_2, z_2) \\
+		&= d_1(x_1, y_1) + d_2(x_2, y_2) + d_1(y_1, z_1) + d_2(y_2, z_2) \\
+		&= d((x_1, x_2), (y_1, y_2)) + d((y_1, y_2), (z_1, z_2)).
+	\end{align*}
+\end{enumerate}
+
+$\qed$
