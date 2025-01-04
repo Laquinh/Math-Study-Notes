@@ -59,3 +59,14 @@ The minimum distance of $C$ is equal to $2$; you can flip two elements in the sa
 
 Finally, an erasure can be corrected if the remaining elements in its row or its column have all be received. Let an erasure be at row $i$ and column $j$. Then, the worst case scenario would be having one other erasure in row $i$ and one other in column $j$, which would at first not let us correct the erasure at $i, j$. But we could then take one of the other erasures, say the one at $i, j'$ without loss of generality, and column $j'$ must have all the rest of elements set. This allows the erasure at $i, j'$ to be corrected first, and we would then be able to correct the erasure at $i, j$ and $i', j$.
 
+\subsection{Exercise 3}
+
+\begin{formulationBox}
+	Let $Q = \{1,2,\hdots,n\}$. Let $C$ be the code in $Q^n$ of all $(c_1, c_2, \hdots, c_n)$ such that $\{c_1, c_2, \hdots, c_n\} = Q$. What is the number of codewords of $C$? What is the minimum distance of $C$? Show that for every received word with one error there are exactly two nearest codewords.
+\end{formulationBox}
+
+The number of codewords of $C$ is the number of permutations of $n$ letters; that is, $n!$.
+
+The minimum distance of $C$ is $2$. Note that all letters in the alphabet appear in each codeword exactly once. Let $c \in C$. If one of $c$'s letters were to be changed from $c_a$ to $c_b$, then the position that used to hold the value $c_b$ also needs to change in order for $c_b$ not to be repeated.
+
+Finally, if a word $w$ contains one error, that means there is exactly one letter in the alphabet (say $l$) that appears twice in the word (say at positions $i$ and $j$), and exactly one letter in the alphabet (say $l'$) that doesn't appear in the word at all. Then, the nearest codewords would be the one having $l$ at position $i$ and $l'$ at position $j$, and the one having $l'$ at position $i$ and $l$ at position $j$.
