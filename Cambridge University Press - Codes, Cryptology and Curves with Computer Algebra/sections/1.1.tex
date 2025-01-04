@@ -1,0 +1,29 @@
+\section{Block Codes}
+
+\subsection{Exercise 1}
+
+\begin{formulationBox}
+	Consider the code of words of the form $(m_1, m_2, m_3, m_4, r_1, r_2, r_3, r_4)$, where $(m_1, m_2, m_3, m_4)$ is the binary message we want to transmit and the redundant bits $(r_1, r_2, r_3, r_4)$ are defined by the following conditions. The sum of the number of ones in rows and columns 1 to 2 should be even.
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$m_1$ & $m_2$ & $r_1$\\
+			\hline
+			$m_3$ & $m_4$ & $r_2$\\
+			\hline
+			$r_3$ & $r_4$ \\
+			\cline{1-2}
+		\end{tabular},
+	\end{center}
+	
+	Show that this code corrects one error.
+\end{formulationBox}
+
+If an error occurs in one of the of the message's bits, then the parity check in that row and that column will fail, so the error is located at those coordinates, and by flipping the bit the error is corrected.
+
+If an error occurs in $r_3$ or $r_4$, then the parity check in its column will fail, but row parity checks will be correct, hence by elimination the error is located at the redundant bit's row, and by flipping the bit the error is corrected.
+
+The reasoning for $r_1$ and $r_2$ is virtually the same.
+
+$\qed$
