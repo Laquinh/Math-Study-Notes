@@ -27,3 +27,35 @@ If an error occurs in $r_3$ or $r_4$, then the parity check in its column will f
 The reasoning for $r_1$ and $r_2$ is virtually the same.
 
 $\qed$
+
+\subsection{Exercise 2}
+
+\begin{formulationBox}
+	Let $C$ be the code of all $n \times n$ binary arrays that have an even number of ones in every row and column. What is the number of codewords of $C$? What is the minimum distance of $C$? Show that every pattern of three erasures can be corrected.
+\end{formulationBox}
+
+Let's first prove there exists exactly one codeword for every $(n-1)\times(n-1)$ binary array.
+
+Take any binary array
+\[A = \begin{pmatrix}
+	a_{1,1} & a_{1,2} & \cdots & a_{1,n-1} \\
+	a_{2,1} & a_{2,2} & \cdots & a_{2,n-1} \\
+	\cdots & \cdots & \ddots & \vdots \\
+	a_{n-1,1} & a_{n-1,2} & \cdots & a_{n-1,n-1} \\
+\end{pmatrix}.\]
+Then, we can build up an array
+\[A' = \begin{pmatrix}
+	a_{1,1} & a_{1,2} & \cdots & a_{1,n-1} & a_{1,n} \\
+	a_{2,1} & a_{2,2} & \cdots & a_{2,n-1} & a_{2,n}\\
+	\cdots & \cdots & \ddots & \vdots & \vdots \\
+	a_{n-1,1} & a_{n-1,2} & \cdots & a_{n-1,n-1} & a_{n-1,n} \\
+	a_{n,1} & a_{n,2} & \cdots & a_{n,n-1} & a_{n,n} \\
+\end{pmatrix}\]
+such that $A' \in C$, by setting the elements in the $n^\textrm{th}$ row and column to be equal to 1 when the number of ones in rest of elements is odd, and 0 otherwise. Likewise, if a bit in the $n^\textrm{th}$ row or column were flipped, then a bit in another row or column would need to be flipped as well, in order for the parity to be preserved.
+
+This shows that the number of codewords of $C$ is exactly the number of possible $(n-1)\times(n-1)$ binary arrays; that is, $2^{(n-1)(n-1)}$.
+
+The minimum distance of $C$ is equal to $2$; you can flip two elements in the same row or column preserving the parity, but that's not possible with a single flip.
+
+Finally, an erasure can be corrected if the remaining elements in its row or its column have all be received. Let an erasure be at row $i$ and column $j$. Then, the worst case scenario would be having one other erasure in row $i$ and one other in column $j$, which would at first not let us correct the erasure at $i, j$. But we could then take one of the other erasures, say the one at $i, j'$ without loss of generality, and column $j'$ must have all the rest of elements set. This allows the erasure at $i, j'$ to be corrected first, and we would then be able to correct the erasure at $i, j$ and $i', j$.
+
