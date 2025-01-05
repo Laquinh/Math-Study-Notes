@@ -107,3 +107,44 @@ Let's now prove that the properties of a metric are valid for $d$:
 \end{enumerate}
 
 $\qed$
+
+\subsection{Exercise 6}
+
+\begin{formulationBox}
+	Let $Q = \{0, 1, \hdots, q-1\}$. Let $d(\textbf{x}, \textbf{y}) = \sum_{i=1}^n \min\{|x_i-y_i|, q - |x_i - y_i|\}$ for $\textbf{x}, \textbf{y} \in Q^n$. Show that $d$ is a metric on $Q^n$. It is called the \textit{Lee metric}.
+\end{formulationBox}
+
+\begin{enumerate}[label=\alph*)]
+	\item $d(\textbf{x}, \textbf{y})\geq0$, and equality holds if and only if $\textbf{x} = \textbf{y}$:
+	
+	Note that $x_i$ and $y_i$ can at most have value $q-1$, so $|x_i - y_i|$ is restricted to the interval $[0, q-1]$. The expression in the summation will therefore always have a non-negative value, and so will the Lee distance.
+	
+	If $\textbf{x} = \textbf{y}$, then $|x_i - y_i| = 0$, so all the addends will be equal to $0$, and so will $d(\textbf{x}, \textbf{y})$.
+	
+	Likewise, if $d(\textbf{x}, \textbf{y}) = 0$, that means the addends are all equal to $0$ (since they are all non-negative), and because $q - |x_i - y_i|$ is restricted to the interval $[1, q]$, that means $|x_i - y_i|$ must be equal to $0$. This only happens when $x_i = y_i$, which, in turn, means $\textbf{x} = \textbf{y}$.
+	
+	\item $d(\textbf{x}, \textbf{y}) = d(\textbf{y}, \textbf{x})$ (symmetry):
+	
+	This is a trivial result given that $|x_i - y_i| = |-(y_i - x_i)| = |y_i - x_i|$.
+	
+	\item $d(\textbf{x}, \textbf{z}) \leq d(\textbf{x}, \textbf{y}) + d(\textbf{y}, \textbf{z})$ (triangle inequality):
+	
+	%\begin{align*}
+	%	d(\textbf{x}, \textbf{z}) &= \sum_{i=1}^n \min\{|x_i-z_i|, q - |x_i - z_i|\} \\
+	%	&= \sum_{i=1}^n \min\{|x_i-y_i+y_i-z_i|, q - |x_i - y_i + y_i - z_i|\} \\
+	%	&\leq \sum_{i=1}^n \min\{|x_i-y_i|+|y_i-z_i|, q - |x_i - y_i + y_i - z_i|\} \\
+	%	&? \sum_{i=1}^n \min\{|x_i - y_i|, q - |x_i - y_i|\} + \min\{|y_i-z_i|, q - |y_i - z_i|\}\\
+	%	&= \sum_{i=1}^n \min\{|x_i - y_i|, q - |x_i - y_i|\} + \sum_{i=1}^n \min\{|y_i-z_i|, q - |y_i - z_i|\} \\
+	%	&= d(\textbf{x}, \textbf{y}) + d(\textbf{y}, \textbf{z})
+	%\end{align*}
+	
+	\begin{itemize}
+		\item If $d_l(x, z) = |x - z|$:
+		\begin{itemize}
+			\item If $d_l(x, y) = |x - y|$ and $d_l(y, z) = |y - z|$: Then $|x - z| \leq |x - y| + |y - z|$ by the absolute value's triangle inequality.
+			\item If $d_l(x, y) = q - |x - y|$ and $d_l(y, z) = q - |y - z|$: Then
+			I have no idea :skull:
+			
+		\end{itemize}
+	\end{itemize}
+\end{enumerate}
